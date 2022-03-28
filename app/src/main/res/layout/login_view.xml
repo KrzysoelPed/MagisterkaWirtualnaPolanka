@@ -41,7 +41,7 @@
             android:text="PANEL LOGOWANIA"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="24dp"
             android:textStyle="bold"
             android:typeface="normal"></TextView>
 
@@ -49,10 +49,10 @@
         <EditText
             android:id="@+id/login_mail"
             android:layout_centerHorizontal="true"
-            android:layout_width="250dp"
+            android:layout_width="550dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="250dp"
             android:background="@drawable/edit_text_view"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:hint="  Wprowadź adres e-mail"
@@ -61,16 +61,16 @@
             android:shadowColor="@color/white"
             android:textColor="@color/black"
             android:textColorLink="@color/white"
-            android:textSize="14dp"
+            android:textSize="18dp"
             android:textStyle="bold">
         </EditText>
 
         <EditText
             android:id="@+id/login_password"
             android:layout_centerHorizontal="true"
-            android:layout_width="250dp"
+            android:layout_width="550dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="310dp"
             android:background="@drawable/edit_text_view"
             android:drawableStart="@drawable/ic_baseline_lock_24"
@@ -80,40 +80,46 @@
             android:shadowColor="@color/white"
             android:textColor="@color/black"
             android:textColorLink="@color/white"
-            android:textSize="14dp"
+            android:textSize="18dp"
             android:textStyle="bold">
         </EditText>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_button"
-            android:layout_width="250dp"
+            android:layout_width="550dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="380dp"
             android:background="@drawable/button_view"
             android:text="ZALOGUJ SIĘ"
+            android:textSize="18dp"
             android:textColor="@color/white">
         </androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/reset_password"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_width="550dp"
+            android:layout_marginLeft="50dp"
             android:layout_centerHorizontal="true"
+            android:layout_height="40dp"
             android:layout_marginTop="430dp"
             android:background="@drawable/button_view"
             android:text="PRZYPOMNIJ HASLO"
+            android:textSize="18dp"
             android:textColor="@color/white">
         </androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/go_to_register"
-            android:layout_width="250dp"
+            android:layout_width="550dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="480dp"
             android:background="@drawable/button_view"
             android:text="ZAREJESTRUJ SIĘ"
+            android:textSize="18dp"
             android:textColor="@color/white">
         </androidx.appcompat.widget.AppCompatButton>
 
