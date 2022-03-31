@@ -3,19 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/activity_main.xml" value="0.19021739130434784" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/choose_floor.xml" value="0.176" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/first_floor.xml" value="0.16799999999999998" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/ground_floor.xml" value="0.1" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/login_view.xml" value="0.10989583333333333" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/second_floor.xml" value="0.13489583333333333" />
+
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/button_shape.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/button_view.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/button_view_login.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/edit_text_view.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.316" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/ic_baseline_person_add_24.xml" value="0.32" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/ic_email_login.xml" value="0.316" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/ic_mail_login.xml" value="0.316" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/spinner_view.xml" value="0.32" />
+
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/activity_main.xml" value="0.19021739130434784" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/choose_floor.xml" value="0.176" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/first_floor.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/ground_floor.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/login_view.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/second_floor.xml" value="0.13489583333333333" />
+
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/choose_floor.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/first_floor.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/ground_floor.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/login_view.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/register_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/login_view.xml" value="0.33" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/register_view.xml" value="0.5" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/second_floor.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/spinner_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/splash_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/layout/toolbar.xml" value="0.22" />
       </map>
     </option>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WirtualnaPolanka</string>
     <string name="text_floors">Wybor pietra</string>
+    <string-array name="values_spinner_register"
+        >
+        <item>Prowadzący</item>
+        <item>Student</item>
+        <item>Pracownik</item>
+    </string-array>
 </resources>
