@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
@@ -13,9 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    ImageButton choose_floor_button;
-    ImageButton login_panel_button;
-    ImageButton register_panel_button;
+    Button choose_floor_button;
+    Button login_panel_button;
+    Button register_panel_button;
     Intent choose_floor_view;
     Intent login_panel;
     Intent register_panel;

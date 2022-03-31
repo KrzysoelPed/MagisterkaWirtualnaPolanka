@@ -97,7 +97,7 @@
         </Spinner>
 
         <EditText
-            android:id="@+id/login_mail_register"
+            android:id="@+id/register_mail"
             android:layout_centerHorizontal="true"
             android:layout_width="550dp"
             android:layout_height="40dp"
@@ -117,7 +117,7 @@
 
 
         <EditText
-            android:id="@+id/login_password_register"
+            android:id="@+id/register_password"
             android:layout_centerHorizontal="true"
             android:layout_width="550dp"
             android:layout_height="40dp"

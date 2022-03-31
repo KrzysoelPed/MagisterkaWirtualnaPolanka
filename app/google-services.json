@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "707475561994",
+    "project_id": "wirtualnapolanka",
+    "storage_bucket": "wirtualnapolanka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707475561994:android:e133aa288538af2e79c9f3",
+        "android_client_info": {
+          "package_name": "com.kp.wirtualnapolanka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707475561994-cp76ioubpkb9lu7s91qk44jjcvdgmc4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjPjbfnrB2YW32G9BLYJIuTdtf-VzdhJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707475561994-cp76ioubpkb9lu7s91qk44jjcvdgmc4a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "707475561994-p1ufio4jtb8eer29se20no6kjbhjjk95.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ZPTM.WirtualnaPolanka"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
