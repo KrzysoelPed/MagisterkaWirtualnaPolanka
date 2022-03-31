@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/green_study"
-    tools:context=".First_floor">
+    tools:context=".First_floor"
+
+        >
 
     <include layout="@layout/toolbar" android:id="@id/toolbar"/>
 
@@ -14,13 +16,17 @@
         android:layout_width="match_parent">
 
 
-        <ImageView
+        <com.ortiz.touchview.TouchImageView
             android:id="@+id/first_floor_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
-            app:srcCompat="@drawable/mapa_pietro1" />
+            app:srcCompat="@drawable/mapa_pietro1">
+
+
+
+        </com.ortiz.touchview.TouchImageView>
 
     </RelativeLayout>
 
