@@ -22,6 +22,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".Ground_floor" />
+        <activity android:name=".First_floor" />
+        <activity android:name=".Second_floor"/>
     </application>
 
 </manifest>
