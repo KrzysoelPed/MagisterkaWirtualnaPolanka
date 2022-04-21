@@ -12,19 +12,260 @@
 
 
 
-    <RelativeLayout
+
+
+    <com.otaliastudios.zoom.ZoomLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_weight="1"
+        android:scrollbars="horizontal|vertical"
+        app:hasClickableChildren="true"
+        app:horizontalPanEnabled="true"
+        app:verticalPanEnabled="true"
+        app:zoomEnabled="true"
+        app:minZoom="1.2"
+        app:maxZoom="6.0">
 
+        <RelativeLayout
+            android:layout_width="411dp"
+            android:layout_height="431dp">
 
-        <com.ortiz.touchview.TouchImageView
-            android:id="@+id/ground_floor_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            app:srcCompat="@drawable/mapa_parter" />
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="411dp"
+                android:layout_height="431dp"
+                android:src="@drawable/mapa_parter"/>
+
+            <Button
+                android:id="@+id/p002"
+                android:layout_width="27dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P002"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="166dp"
+                android:layout_marginTop="350dp" />
+
+            <Button
+                android:id="@+id/p004"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P004"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="123dp"
+                android:layout_marginTop="350dp" />
+
+            <Button
+                android:id="@+id/p005"
+                android:layout_width="67dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P005"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="350dp" />
+
+            <Button
+                android:id="@+id/p011"
+                android:layout_width="84dp"
+                android:layout_height="98dp"
+                app:cornerRadius="0dp"
+                android:rotation="7"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P011"
+                android:textSize="9sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="144dp" />
+
+            <Button
+                android:id="@+id/p013"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P013"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="154dp"
+                android:layout_marginTop="297dp" />
+
+            <Button
+                android:id="@+id/p014"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P014"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="185dp"
+                android:layout_marginTop="297dp" />
+
+            <Button
+                android:id="@+id/p019"
+                android:layout_width="29dp"
+                android:layout_height="56dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P019"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/white"
+                android:layout_marginStart="271dp"
+                android:layout_marginTop="160dp" />
+
+            <Button
+                android:id="@+id/p020"
+                android:layout_width="29dp"
+                android:layout_height="60dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P020"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/white"
+                android:layout_marginStart="267dp"
+                android:layout_marginTop="97dp" />
+
+            <Button
+                android:id="@+id/p024"
+                android:layout_width="26dp"
+                android:layout_height="60dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P024"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="316dp"
+                android:layout_marginTop="94dp" />
+
+            <Button
+                android:id="@+id/p026"
+                android:layout_width="26dp"
+                android:layout_height="55dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P026"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="157dp" />
+
+            <Button
+                android:id="@+id/p027"
+                android:layout_width="26dp"
+                android:layout_height="55dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P027"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="324dp"
+                android:layout_marginTop="216dp" />
+
+            <Button
+                android:id="@+id/p028"
+                android:layout_width="25dp"
+                android:layout_height="55dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P028"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="329dp"
+                android:layout_marginTop="275dp" />
+
+            <Button
+                android:id="@+id/p029"
+                android:layout_width="25dp"
+                android:layout_height="42dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P029"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="333dp"
+                android:layout_marginTop="333dp" />
+
+        </RelativeLayout>
+    </com.otaliastudios.zoom.ZoomLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
