@@ -5,8 +5,13 @@
         >
         <item>Prowadzący</item>
         <item>Student</item>
-        <item>Pracownik</item>
     </string-array>
     <string name="strona_wydzialowa">Strona Wydziałowa</string>
     <string name="przypomnij_hasło">PRZYPOMNIJ Hasło</string>
+    <string-array name="type_values"
+        >
+        <item>Sala wykładowa</item>
+        <item>Sala ćwiczeniowa</item>
+        <item>Sala laboratoryjna</item>
+    </string-array>
 </resources>

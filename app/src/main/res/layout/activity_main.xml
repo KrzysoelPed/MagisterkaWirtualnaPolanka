@@ -53,36 +53,6 @@
             android:background="@drawable/button_view_1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/panel_logowania"
-            android:layout_width="550dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/strona_wydzialowa"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_view_1"
-            android:text="PANEL LOGOWANIA"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/panel_rejestracji"
-            android:layout_width="550dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="50dp"
-            android:layout_below="@+id/panel_logowania"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:text="PANEL REJESTRACJI"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:background="@drawable/button_view_1" />
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/strona_wydzialowa"
             android:layout_width="550dp"
             android:layout_height="50dp"
@@ -103,7 +73,7 @@
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
-            android:layout_below="@+id/panel_rejestracji"
+            android:layout_below="@+id/strona_wydzialowa"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             android:text="KONTAKT"
