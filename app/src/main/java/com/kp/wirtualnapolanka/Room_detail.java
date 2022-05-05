@@ -27,5 +27,7 @@ public class Room_detail extends AppCompatActivity {
 
         roomIdTextView = (TextView) findViewById(R.id.roomIdTextView);
         roomIdTextView.setText(name);
+
+
     }
 }
