@@ -25,6 +25,8 @@
         <activity android:name=".Ground_floor" />
         <activity android:name=".First_floor" />
         <activity android:name=".Second_floor"/>
+        <activity android:name=".Room_detail"/>
+
     </application>
 
 </manifest>

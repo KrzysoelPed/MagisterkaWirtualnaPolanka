@@ -5,31 +5,637 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/green_study"
-    tools:context=".First_floor"
-
-        >
+    tools:context=".First_floor">
 
     <include layout="@layout/toolbar" android:id="@id/toolbar"/>
 
-    <RelativeLayout
+
+
+    <com.otaliastudios.zoom.ZoomLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_marginTop="55dp"
+        android:layout_weight="1"
+        android:scrollbars="horizontal|vertical"
+        app:hasClickableChildren="true"
+        app:horizontalPanEnabled="true"
+        app:verticalPanEnabled="true"
+        app:zoomEnabled="true"
+        app:minZoom="1.2"
+        app:maxZoom="6.0">
+
+        <RelativeLayout
+            android:layout_width="411dp"
+            android:layout_height="431dp">
+
+            <ImageView
+                android:layout_width="411dp"
+                android:layout_height="431dp"
+                android:src="@drawable/mapa_pietro1" />
+
+            <Button
+                android:id="@+id/p101"
+                android:layout_width="48dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P101"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="244dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p102"
+                android:layout_width="27dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P102"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="213dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p103"
+                android:layout_width="21dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P103"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p104"
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P104"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="168dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p105"
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P105"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="149dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p106"
+                android:layout_width="34dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P106"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p107"
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P107"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p108"
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P108"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="73dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p109"
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P109"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="54dp"
+                android:layout_marginTop="333dp" />
+
+            <Button
+                android:id="@+id/p114"
+                android:layout_width="84dp"
+                android:layout_height="97dp"
+                app:cornerRadius="0dp"
+                android:rotation="7"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P110"
+                android:textSize="10sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="130dp" />
+
+            <Button
+                android:id="@+id/p115"
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P115"
+                android:textSize="4sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="153dp"
+                android:layout_marginTop="282dp" />
+
+            <Button
+                android:id="@+id/p116"
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P116"
+                android:textSize="4sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="282dp" />
+
+            <Button
+                android:id="@+id/p117"
+                android:layout_width="21dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P117"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="282dp" />
+
+            <Button
+                android:id="@+id/p118"
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P118"
+                android:textSize="4sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="211.5dp"
+                android:layout_marginTop="282dp" />
+
+            <Button
+                android:id="@+id/p119"
+                android:layout_width="23dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P119"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="229dp"
+                android:layout_marginTop="282dp" />
+
+            <Button
+                android:id="@+id/p120"
+                android:layout_width="28dp"
+                android:layout_height="23dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P120"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="275dp"
+                android:layout_marginTop="233dp" />
+
+            <Button
+                android:id="@+id/p121"
+                android:layout_width="28dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P121"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="274dp"
+                android:layout_marginTop="214dp" />
+
+            <Button
+                android:id="@+id/p122"
+                android:layout_width="28dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P122"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="272.5dp"
+                android:layout_marginTop="194.5dp" />
+
+            <Button
+                android:id="@+id/p123"
+                android:layout_width="28dp"
+                android:layout_height="29dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P123"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="270.5dp"
+                android:layout_marginTop="161.5dp" />
+
+            <Button
+            android:id="@+id/p124"
+            android:layout_width="28dp"
+            android:layout_height="15dp"
+            app:cornerRadius="0dp"
+            android:rotation="-3.5"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            android:text="P124"
+            android:textSize="5sp"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="268.5dp"
+            android:layout_marginTop="142.5dp" />
+
+            <Button
+                android:id="@+id/p125"
+                android:layout_width="28dp"
+                android:layout_height="15dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P125"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="267.5dp"
+                android:layout_marginTop="122.5dp" />
+
+            <Button
+                android:id="@+id/p126"
+                android:layout_width="28dp"
+                android:layout_height="35dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P126"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="265.5dp"
+                android:layout_marginTop="83dp" />
+
+            <Button
+                android:id="@+id/p128"
+                android:layout_width="25dp"
+                android:layout_height="15dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P128"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="313dp"
+                android:layout_marginTop="80.3dp" />
+
+            <Button
+                android:id="@+id/p129"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P129"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="314dp"
+                android:layout_marginTop="99dp" />
+
+            <Button
+                android:id="@+id/p130"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P130"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="316dp"
+                android:layout_marginTop="118.5dp" />
+
+            <Button
+                android:id="@+id/p131"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P131"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="317dp"
+                android:layout_marginTop="138dp" />
+
+            <Button
+                android:id="@+id/p132"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P132"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="319dp"
+                android:layout_marginTop="157.8dp" />
+
+            <Button
+                android:id="@+id/p133"
+                android:layout_width="25dp"
+                android:layout_height="35dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4.3"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P133"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="322.5dp"
+                android:layout_marginTop="191dp" />
+
+            <Button
+                android:id="@+id/p134"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P134"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="323dp"
+                android:layout_marginTop="229dp" />
+
+            <Button
+                android:id="@+id/p135"
+                android:layout_width="25dp"
+                android:layout_height="15dp"
+                app:cornerRadius="0dp"
+                android:rotation="-3.5"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P135"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="325dp"
+                android:layout_marginTop="249.5dp" />
+
+            <Button
+                android:id="@+id/p136"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P136"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="326dp"
+                android:layout_marginTop="268dp" />
+
+            <Button
+                android:id="@+id/p137"
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P137"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="327dp"
+                android:layout_marginTop="288dp" />
+
+            <Button
+                android:id="@+id/p138"
+                android:layout_width="25dp"
+                android:layout_height="22dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P138"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="329dp"
+                android:layout_marginTop="307dp" />
+
+            <Button
+                android:id="@+id/p139"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:cornerRadius="0dp"
+                android:rotation="-4"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:padding="0dp"
+                android:text="P139"
+                android:textSize="5sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="333dp" />
 
 
-        <com.ortiz.touchview.TouchImageView
-            android:id="@+id/first_floor_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            app:srcCompat="@drawable/mapa_pietro1">
 
 
 
-        </com.ortiz.touchview.TouchImageView>
-
-    </RelativeLayout>
-
-
+        </RelativeLayout>
+    </com.otaliastudios.zoom.ZoomLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
