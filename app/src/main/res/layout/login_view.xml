@@ -105,7 +105,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="430dp"
             android:background="@drawable/button_view"
-            android:text="PRZYPOMNIJ HASLO"
+            android:text="@string/przypomnij_hasło"
             android:textSize="18dp"
             android:textColor="@color/white">
         </androidx.appcompat.widget.AppCompatButton>

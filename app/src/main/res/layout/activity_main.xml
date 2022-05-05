@@ -37,34 +37,50 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/wybor_pietra"
-            android:layout_width="350dp"
-            android:layout_height="110dp"
+            android:layout_width="550dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
             android:layout_below="@+id/CardLogo"
             android:layout_centerInParent="true"
             android:layout_marginTop="30dp"
-            android:background="@drawable/wybor_pietra" />
+            android:text="WYBÓR PIĘTRA"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_view_1" />
 
-        <ImageButton
-            android:id="@+id/panel_logowania"
-            android:layout_width="350dp"
-            android:layout_height="110dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/strona_wydzialowa"
+            android:layout_width="550dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
             android:layout_below="@+id/wybor_pietra"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/panel_logowania" />
+            android:text="@string/strona_wydzialowa"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_view" />
 
-
-        <ImageButton
-            android:id="@+id/panel_rejestracji"
-            android:layout_width="350dp"
-            android:layout_height="110dp"
-            android:layout_below="@+id/panel_logowania"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/kontakt"
+            android:layout_width="550dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/strona_wydzialowa"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/panel_rejestracji" />
-
+            android:text="KONTAKT"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_view" />
 
     </RelativeLayout>
 

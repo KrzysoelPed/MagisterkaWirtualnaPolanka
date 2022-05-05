@@ -21,6 +21,7 @@
         <activity android:name=".Choose_Floor" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
+        <activity android:name=".AddValue"/>
         <activity android:name=".Ground_floor" />
         <activity android:name=".First_floor" />
         <activity android:name=".Second_floor"/>
