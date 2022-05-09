@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/choose_floor.xml" value="0.10989583333333333" />
+        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/activity_main.xml" value="0.19021739130434784" />
+        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/choose_floor.xml" value="0.16799999999999998" />
         <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/first_floor.xml" value="0.40773480662983425" />
         <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/ground_floor.xml" value="0.8800000000000001" />
-        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/room_detail.xml" value="0.4" />
+        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/register_view.xml" value="0.19021739130434784" />
+        <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/room_detail.xml" value="0.264" />
         <entry key="..\:/Dane/Magister/Praca Magisterska/Projekt/MagisterkaWirtualnaPolanka/app/src/main/res/layout/second_floor.xml" value="1.6376146788990826" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/button_shape.xml" value="0.32" />
         <entry key="..\:/Users/DELL/.AndroidStudio3.6/WirtualnaPolanka/app/src/main/res/drawable/button_view.xml" value="0.32" />

@@ -57,11 +57,11 @@
             android:drawableStart="@drawable/ic_baseline_person_add_24"
             android:hint="  Imię"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:shadowColor="@color/white"
             android:textColor="@color/black"
             android:textColorLink="@color/white"
             android:textSize="18dp"
-            android:paddingEnd="15dp"
             android:textStyle="bold"></EditText>
         <EditText
             android:id="@+id/register_surname"

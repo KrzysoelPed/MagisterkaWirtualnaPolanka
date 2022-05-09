@@ -16,24 +16,83 @@
 
         <TextView
             android:id="@+id/roomIdTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_view_1"
+            android:textSize="30sp"
             android:layout_marginTop="100dp"
             android:text="Pokój: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="5dp"
+
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/baza"
-            android:layout_width="wrap_content"
+        <LinearLayout
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/roomDetailLinearLayout"
             android:layout_below="@id/roomIdTextView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:text="DANE POBIERANE Z BAZY"
-            tools:ignore="MissingConstraints" />
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/pokojImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/drzwi_ikona1"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/pokoj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:text="LABORATORIUM RADIOKOMUNIKACJI "
+                android:background="@drawable/button_view"
+                android:textColor="@color/white"
+                android:padding="10dp"
+
+                android:textStyle="bold"
+                android:layout_marginRight="30dp"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/roomDetailLinearLayout"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/konsultacjeImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/zegar_ikona"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/konsultacje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:text="LABORATORIUM RADIOKOMUNIKACJI "
+                android:background="@drawable/button_view_1"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:layout_marginRight="30dp"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
 
     </RelativeLayout>
 
