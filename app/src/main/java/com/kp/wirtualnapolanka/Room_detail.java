@@ -1,8 +1,13 @@
 package com.kp.wirtualnapolanka;
 
+import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,15 +25,17 @@ public class Room_detail extends AppCompatActivity {
     private static final String TAG = "Room_detail";
     Toolbar toolbar;
 
-    DatabaseReference mDataBase;
-    String mPomieszczenie;
+    FirebaseDatabase mDataBase;
+    DatabaseReference mDataRef;
 
-    TextView roomIdTextView;
-    TextView roomDetailTextView;
-    TextView roomTimeTextView;
     String id;
-    String detail;
-    String time;
+    String idBase;
+
+    String rDetailPerson;
+    String rDetailName;
+    String rDetailInfo;
+    String rTimeInfo;
+    String rPresenceInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,55 +45,116 @@ public class Room_detail extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDataBase = FirebaseDatabase.getInstance().getReference().child("Pomieszczenie");
+        //Widoki z pliku roomdetail.xml
+        View loadingPanel = (View) findViewById(R.id.loadingPanel);
+
+        View roomDetailLayout = (View) findViewById(R.id.roomDetailLayout);
+        ImageView roomDetailImage = (ImageView) findViewById(R.id.roomDetailImage);
+        TextView roomDetailName = (TextView) findViewById(R.id.roomDetailName);
+        TextView roomDetailInfo = (TextView) findViewById(R.id.roomDetailInfo);
+
+        View timeLayout = (View) findViewById(R.id.timeLayout);
+        ImageView timeImage = (ImageView) findViewById(R.id.timeImage);
+        TextView timeName = (TextView) findViewById(R.id.timeName);
+        TextView timeInfo = (TextView) findViewById(R.id.timeInfo);
+
+        View presenceLayout = (View) findViewById(R.id.presenceLayout);
+        ImageView presenceImage = (ImageView) findViewById(R.id.presenceImage);
+        TextView presenceName = (TextView) findViewById(R.id.presenceName);
+        TextView presenceInfo = (TextView) findViewById(R.id.presenceInfo);
+        // --------------------
 
 
-        //mDataBase.add
+        id = (String) getIntent().getStringExtra("roomID");
+        id = id.replace("p", "");
+        idBase = id;
+        TextView roomIdTextView = findViewById(R.id.roomIdTextView);
+        roomIdTextView.setText("Pokój: " + idBase);
 
+        mDataBase = FirebaseDatabase.getInstance();
+        mDataRef = mDataBase.getReference("Pomieszczenie");
 
-        mDataBase.addValueEventListener(new ValueEventListener() {
+        mDataRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    mPomieszczenie = String.valueOf(snapshot.child("-N181Q-4YVci3y8-7nmM").child("opiekun").getValue());
-                    Log.d(TAG,"test " + mPomieszczenie);
+                if (snapshot.exists()) {
+                    rDetailPerson = (String) snapshot.child(idBase).child("osoba").getValue();
+                    rDetailName = (String) snapshot.child(idBase).child("pomieszczenie_typ").getValue();
+                    rDetailInfo = (String) snapshot.child(idBase).child("pomieszczenie").getValue();
+                    rTimeInfo = (String) snapshot.child(idBase).child("konsultacje").getValue();
+                    rPresenceInfo = (String) snapshot.child(idBase).child("obecnosc").getValue();
 
-                    roomDetailTextView.setText(mPomieszczenie);
+
+
+                    Log.d(TAG, "Jaka wartosc ma rDetailPerson = " + rDetailPerson);
+                    Log.d(TAG, "Jaka wartosc ma rDetailName = " + rDetailName);
+
+
+                    if(rDetailName.equals("Pokój prywatny")){
+                        roomDetailName.setText("PROWADZĄCY");
+                        roomDetailImage.setBackgroundResource(R.drawable.osoba);
+                        rDetailPerson = rDetailPerson.replace("bb", " \n ");
+                        roomDetailInfo.setText(rDetailPerson);
+
+                        timeName.setText("KONSULTACJE");
+                        timeImage.setBackgroundResource(R.drawable.zegar_ikona);
+                        Log.d(TAG, "Jaka wartosc ma rDetailName = " + rTimeInfo);
+                        rTimeInfo = rTimeInfo.replace("bb", " \n ");
+                        rTimeInfo = rTimeInfo.replace("aa", " \n ");
+                        Log.d(TAG, "Jaka wartosc ma rDetailName = " + rTimeInfo);
+                        timeInfo.setText(rTimeInfo);
+
+                        presenceName.setText("OBECNOŚĆ");
+                        presenceImage.setBackgroundResource(R.drawable.obecnosc);
+                        if(rPresenceInfo.equals("NIEOBECNY")){
+                            presenceInfo.setTextColor(getResources().getColor(R.color.red));
+                            presenceInfo.setText(rPresenceInfo);
+                        }else{
+                            presenceInfo.setTextColor(getResources().getColor(R.color.green));
+                            presenceInfo.setText(rPresenceInfo);
+                        }
+
+                    }else{
+                        roomDetailName.setText("POMIESZCZENIE");
+                        roomDetailImage.setBackgroundResource(0);
+                        roomDetailImage.setBackgroundResource(R.drawable.drzwi_ikona1);
+                        roomDetailInfo.setText(rDetailName);
+
+                        timeName.setText("INFORMACJE");
+                        timeImage.setBackgroundResource(0);
+                        timeImage.setBackgroundResource(R.drawable.informacje_o_sali);
+                        timeInfo.setText(rDetailInfo);
+
+                        presenceLayout.setVisibility(View.GONE);
+                        presenceInfo.setVisibility(View.GONE);
+
+                    }
+
+
+
+
+                    //roomDetail = String.valueOf(snapshot.child("019").child("opiekun").getValue());
+                     //= (String) snapshot.child(idBase).child("opiekun").getValue();
+                    //roomDetail = (String) snapshot.child(idBase).child("opiekun").getValue();
+
+                    //Log.d(TAG, "Jaka wartosc ma roomDetail = " + id);
+
+                    //roomIdTextView.setText(idBase);
+                    //roomDetailTextView.setText(roomDetail);
+
+                    findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                    findViewById(R.id.roomDetailPanel).setVisibility(View.VISIBLE);
+
 
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d(TAG, "Problem z odczytem");
             }
         });
 
-        Log.d(TAG,"test2 " + detail);
-
-        id = getIntent().getStringExtra("roomID");
-        id = id.replace("p","");
-/*
-        if(id.equals("106")) {
-            detail = "Laboratorium Układów Programowalnych i Systemów Wbudowanych";
-        }else
-        {
-            detail = "Prof. Dr hab. inż. Adrian Kliks";
-        }
-
- */
-
-        id = "Pokój: P" + id;
-
-
-
-
-
-        roomIdTextView = (TextView) findViewById(R.id.roomIdTextView);
-        roomIdTextView.setText(id);
-        roomDetailTextView = (TextView) findViewById(R.id.pokoj);
-        roomDetailTextView.setText(detail);
-
-
     }
+
 }
