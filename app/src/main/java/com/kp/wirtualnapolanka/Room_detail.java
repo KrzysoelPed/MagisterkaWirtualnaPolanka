@@ -32,6 +32,8 @@ public class Room_detail extends AppCompatActivity {
     FirebaseDatabase mDataBase;
     DatabaseReference mDataRef;
 
+    String idScan;
+    String idMap;
     String id;
     String idBase;
 
@@ -71,10 +73,20 @@ public class Room_detail extends AppCompatActivity {
         qrButton = findViewById(R.id.qrGeneratorButton);
         // --------------------
 
+        idScan = (String) getIntent().getStringExtra("scanQr");
+        idMap = (String) getIntent().getStringExtra("roomID");
+        if (idScan == null){
+            id = idMap;
+        } else {
+            id = idScan;
+        }
 
-        id = (String) getIntent().getStringExtra("roomID");
+        Log.d(TAG, "Jaki oddd intenta: " + id);
+
         id = id.replace("p", "");
         idBase = id;
+        Log.d(TAG, "Jaki do bazy od intenta: " + id);
+
         TextView roomIdTextView = findViewById(R.id.roomIdTextView);
         roomIdTextView.setText("Pokój: " + idBase);
 
@@ -85,7 +97,7 @@ public class Room_detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Room_detail.this, Qr_code_generator.class);
-                i.putExtra("qrGenerator", "201");
+                i.putExtra("qrGenerator", id);
                 Log.d(TAG, "Jaki do intenta: " + id);
                 startActivity(i);
             }
