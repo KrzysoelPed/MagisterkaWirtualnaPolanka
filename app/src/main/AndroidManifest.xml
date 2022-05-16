@@ -26,6 +26,8 @@
         <activity android:name=".First_floor" />
         <activity android:name=".Second_floor"/>
         <activity android:name=".Room_detail"/>
+        <activity android:name=".Qr_code_scanner"/>
+        <activity android:name=".Qr_code_generator"/>
 
     </application>
 

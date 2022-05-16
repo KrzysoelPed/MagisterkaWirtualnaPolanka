@@ -1,11 +1,13 @@
 package com.kp.wirtualnapolanka;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,8 @@ public class Room_detail extends AppCompatActivity {
 
     private static final String TAG = "Room_detail";
     Toolbar toolbar;
+
+    Button qrButton;
 
     FirebaseDatabase mDataBase;
     DatabaseReference mDataRef;
@@ -45,6 +49,7 @@ public class Room_detail extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         //Widoki z pliku roomdetail.xml
         View loadingPanel = (View) findViewById(R.id.loadingPanel);
 
@@ -62,6 +67,8 @@ public class Room_detail extends AppCompatActivity {
         ImageView presenceImage = (ImageView) findViewById(R.id.presenceImage);
         TextView presenceName = (TextView) findViewById(R.id.presenceName);
         TextView presenceInfo = (TextView) findViewById(R.id.presenceInfo);
+
+        qrButton = findViewById(R.id.qrGeneratorButton);
         // --------------------
 
 
@@ -73,6 +80,16 @@ public class Room_detail extends AppCompatActivity {
 
         mDataBase = FirebaseDatabase.getInstance();
         mDataRef = mDataBase.getReference("Pomieszczenie");
+
+        qrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Room_detail.this, Qr_code_generator.class);
+                i.putExtra("qrGenerator", "201");
+                Log.d(TAG, "Jaki do intenta: " + id);
+                startActivity(i);
+            }
+        });
 
         mDataRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -154,6 +171,8 @@ public class Room_detail extends AppCompatActivity {
                 Log.d(TAG, "Problem z odczytem");
             }
         });
+
+
 
     }
 
