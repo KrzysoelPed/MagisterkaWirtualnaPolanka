@@ -37,6 +37,7 @@ public class Choose_Floor extends AppCompatActivity {
     Intent button_second_floor_intent;
 
     DatabaseReference mDataRef;
+    DatabaseReference mDataRef2;
     private ListView listData;
     private AutoCompleteTextView search;
 
@@ -49,38 +50,47 @@ public class Choose_Floor extends AppCompatActivity {
         setSupportActionBar (toolbar);
 
         mDataRef = FirebaseDatabase.getInstance().getReference("Osoby");
+        mDataRef2 = FirebaseDatabase.getInstance().getReference("Pomieszczenie");
         listData = (ListView)findViewById(R.id.listData);
         search = (AutoCompleteTextView)findViewById(R.id.search);
+
+        ArrayList<String> dataFromDb = new ArrayList<>();
 
         ValueEventListener event = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<String> dataFromDb = new ArrayList<>();
+                //ArrayList<String> dataFromDb = new ArrayList<>();
                 if(snapshot.exists()){
-                    String dataString2 = (String) snapshot.child("osoba").getValue();
+                    //String dataString2 = (String) snapshot.child("osoba").getValue();
 
                     for(DataSnapshot ds:snapshot.getChildren()){
 
                         if(ds.child("osoba").getValue() != null){
                             String dataString = (String) ds.child("osoba").getValue();
-
-                            String temp = "(.*)" + dataString + "(.*)";
-                            //Log.d("tag", "Data string -> " + dataString);
-                            //Log.d("tag", "ds.getKey -> " + ds.getKey());
-                            //Log.d("tag", "dopasowanie -> " + dataString.matches(temp));
-
-
-                            //if(dataString.matches(temp)){
-                                //Log.d("tag", "Wykryto key id -> " + ds.child("id").getValue());
-                            //}
-
                             dataFromDb.add(dataString);
                         }
+
                     }
 
+                    mDataRef2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                for (DataSnapshot ds : snapshot.getChildren()) {
 
+                                    if (ds.child("pomieszczenie").getValue() != null) {
+                                        String dataString = ds.child("pomieszczenie").getValue().toString();
+                                        dataFromDb.add(dataString);
+                                    }
+                                }
+                            }
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
+                        }
+                        });
 
                     ArrayAdapter adapter = new ArrayAdapter<String>(Choose_Floor.this, android.R.layout.simple_list_item_1, dataFromDb);
                     search.setAdapter(adapter);
@@ -89,36 +99,88 @@ public class Choose_Floor extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             String name = search.getText().toString();
-                            Log.d("tag", "Data string -> " + name);
+                            Log.d("tag", "Nazwa po kliknieciu -> " + name);
                             //Log.d("tag", "ds.getKey -> " + ds.getKey());
                             //Log.d("tag", "dopasowanie -> " + dataString.matches(temp));
-                            for(DataSnapshot ds:snapshot.getChildren()){
+                            for(DataSnapshot ds:snapshot.getChildren()) {
 
-                                if(ds.child("osoba").getValue() != null){
-                                    String temp = "(.*)" + name + "(.*)";
+                                if (ds.child("osoba").getValue() != null) {
+                                    //String tempName = "(.*)" + name;
+                                    Log.d("tag", "Name -> " + name);
+                                    Log.d("tag", "ds.child(osoba) name -> " + ds.child("osoba").getValue().toString());
+                                    Log.d("tag", "Equals -> " + ds.child("osoba").getValue().equals(name));
 
-                                    if(name.matches(temp)){
-                                        Log.d("tag", "Wykryto id -> " + ds.child("id").getValue());
+
+                                    if (ds.child("osoba").getValue().equals(name)) {
+                                        Log.d("tag", "Wykryto nazwe -> " + ds.child("osoba").getValue().toString());
                                         String idName = ds.child("id").getValue().toString();
 
+                                        Log.d("tag", "idName -> " + idName);
+
+                                        Log.d("tag", "Pierwszy znak z id -> " + idName.charAt(0));
+                                        if (idName.charAt(0) == '0') {
+                                            Log.d("tag", "Przechodze do 0 -> " + idName.charAt(0));
+                                            Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
+                                            intent.putExtra("IDFromSearch", idName);
+                                            idName = null;
+                                            startActivity(intent);
+                                            break;
+                                        }
+                                        if (idName.charAt(0) == '1') {
+                                            Log.d("tag", "Przechodze do 1 -> " + idName.charAt(0));
+                                            Intent intent = new Intent(Choose_Floor.this, First_floor.class);
+                                            intent.putExtra("IDFromSearch", idName);
+                                            idName = null;
+                                            startActivity(intent);
+                                            break;
+                                        }
+
+                                        if (idName.charAt(0) == '2') {
+                                            Log.d("tag", "Przechodze do 2 -> " + idName.charAt(0));
+                                            Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
+                                            intent.putExtra("IDFromSearch", idName);
+                                            idName = null;
+                                            startActivity(intent);
+                                            break;
+                                        }
+                                    }
+
+                                }
+
+                                if (ds.child("id").getValue().equals(name)) {
+                                    Log.d("tag", "Wykryto nazwe -> " + ds.child("osoba").getValue().toString());
+                                    String idName = ds.child("id").getValue().toString();
+
+                                    Log.d("tag", "idName -> " + idName);
+
+                                    Log.d("tag", "Pierwszy znak z id -> " + idName.charAt(0));
+                                    if (idName.charAt(0) == '0') {
+                                        Log.d("tag", "Przechodze do 0 -> " + idName.charAt(0));
+                                        Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
+                                        intent.putExtra("IDFromSearch", idName);
+                                        idName = null;
+                                        startActivity(intent);
+                                        break;
+                                    }
+                                    if (idName.charAt(0) == '1') {
+                                        Log.d("tag", "Przechodze do 1 -> " + idName.charAt(0));
+                                        Intent intent = new Intent(Choose_Floor.this, First_floor.class);
+                                        intent.putExtra("IDFromSearch", idName);
+                                        idName = null;
+                                        startActivity(intent);
+                                        break;
+                                    }
+
+                                    if (idName.charAt(0) == '2') {
+                                        Log.d("tag", "Przechodze do 2 -> " + idName.charAt(0));
                                         Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
+                                        idName = null;
                                         startActivity(intent);
-
-                                        //int id = getResources().getIdentifier("p222","id",getPackageName());
-                                        //int id = R.id.p222;
-                                        //Log.d("tag", "Wykryto id otrzymane -> " + id);
-
-                                        //String stringTemp = "R.id.p222";
-
-                                        //Button button = (Button)findViewById((Integer)1000472);
-                                        //button.setText("OK");
-
-
-
-
+                                        break;
                                     }
                                 }
+
                             }
 
                         }
@@ -137,6 +199,7 @@ public class Choose_Floor extends AppCompatActivity {
         };
 
         mDataRef.addListenerForSingleValueEvent(event);
+
 
         button_ground = findViewById(R.id.ground);
         button_first_floor = findViewById(R.id.floor1);

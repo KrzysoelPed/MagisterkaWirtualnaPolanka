@@ -332,45 +332,13 @@ public class Second_floor extends AppCompatActivity {
         if(getIntent().getStringExtra("IDFromSearch") != null)
         idSearch = Integer.parseInt(getIntent().getStringExtra("IDFromSearch").substring(1));
         if(idSearch != 0){
-            //for(int i=0; i<3; i++){
-                int colorFrom = getResources().getColor(R.color.red);
-                int colorTo = getResources().getColor(R.color.black);
-
-
-
-
-            ObjectAnimator.ofObject(
-                    secondFloorButtons[idSearch], // Object to animating
-                    "textColor", // Property to animate
-                    new ArgbEvaluator(), // Interpolation function
-                    Color.BLUE, // Start color
-                    Color.RED // End color
-            ).setDuration(1200) // Duration in milliseconds
-                    .start();
-
-
-
-                /*
-                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-                colorAnimation.setDuration(1000);
-                colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        secondFloorButtons[idSearch].setBackgroundColor((int) valueAnimator.getAnimatedValue());
-                    }
-                });
-                colorAnimation.start();
-                 */
-
-
-
-                //secondFloorButtons[idSearch].setTypeface(null, Typeface.BOLD);
-                //secondFloorButtons[idSearch].setTypeface(null, Typeface.BOLD);
-                //secondFloorButtons[idSearch].setTextColor(getResources().getColor(R.color.red));
-
-            //}
+            ObjectAnimator colorAnim = ObjectAnimator.ofInt(secondFloorButtons[idSearch], "textColor", Color.RED, Color.TRANSPARENT);
+            colorAnim.setDuration(1000);
+            colorAnim.setEvaluator(new ArgbEvaluator());
+            colorAnim.setRepeatCount(ValueAnimator.INFINITE);
+            colorAnim.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnim.start();
         }
-
     }
 
     public void clickOnRoomButton(View v){
