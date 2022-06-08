@@ -3,21 +3,41 @@ package com.kp.wirtualnapolanka;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
+//import com.kontakt.sdk.android.common.KontaktSDK;
 import androidx.appcompat.widget.Toolbar;
+
+import com.kontakt.sdk.android.ble.connection.OnServiceReadyListener;
+import com.kontakt.sdk.android.ble.manager.ProximityManager;
+import com.kontakt.sdk.android.ble.manager.ProximityManagerFactory;
+import com.kontakt.sdk.android.ble.manager.listeners.IBeaconListener;
+import com.kontakt.sdk.android.ble.manager.listeners.simple.SimpleIBeaconListener;
+import com.kontakt.sdk.android.common.KontaktSDK;
+import com.kontakt.sdk.android.common.profile.IBeaconDevice;
+import com.kontakt.sdk.android.common.profile.IBeaconRegion;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    private ProximityManager proximityManager;
     Toolbar toolbar;
     Button choose_floor_button;
     Boolean czy_zalogowano;
@@ -25,12 +45,18 @@ public class MainActivity extends AppCompatActivity {
     Intent login_panel;
     Intent register_panel;
     Intent add_new_value;
+    BluetoothAdapter bluetoothAdapter;
+    public ArrayList<BluetoothDevice> BTDevices = new ArrayList<> ();
+    public DeviceListAdapter mDevicesListAdapter;
+    ListView DevicesList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
         toolbar = findViewById (R.id.toolbar);
+
         setSupportActionBar(toolbar);
+        KontaktSDK.initialize("XHXFxewaYczrqlXxCqIgOFFZiMUUUetY");
         Intent get_login_value = getIntent ();
         czy_zalogowano = get_login_value.getBooleanExtra ("czy_zalogowany", false);
 
@@ -50,6 +76,57 @@ public class MainActivity extends AppCompatActivity {
                 startActivity (choose_floor_view);
             }
         });
+
+        proximityManager = ProximityManagerFactory.create(this);
+        proximityManager.setIBeaconListener(createIBeaconListener());
+
+    }
+
+    private BroadcastReceiver BroadcastReceiver3 = new BroadcastReceiver () {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction ();
+
+            if(action.equals (BluetoothDevice.ACTION_FOUND))
+            {
+                BluetoothDevice device = intent.getParcelableExtra (BluetoothDevice.EXTRA_DEVICE);
+                int rssi = intent.getShortExtra (BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
+                BTDevices.add (device);
+                Log.d(TAG, "onReceive: "+device.getName ()+": "+device.getAddress ()+": "+rssi);
+                //mDevicesListAdapter = new DeviceListAdapter (context, R.layout.devices_view_adapter, BTDevices);
+                DevicesList.setAdapter (mDevicesListAdapter);
+            }
+
+        }
+    };
+    @Override
+    protected void onStart() {
+        super.onStart();
+        startScanning();
+
+    }
+
+    @Override
+    protected void onStop() {
+        proximityManager.stopScanning();
+        super.onStop();
+    }
+
+    private void startScanning() {
+        proximityManager.connect(new OnServiceReadyListener () {
+            @Override
+            public void onServiceReady() {
+                proximityManager.startScanning();
+            }
+        });
+    }
+    private IBeaconListener createIBeaconListener() {
+        return new SimpleIBeaconListener () {
+            @Override
+            public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
+                Log.i(TAG, "IBeacon discovered: " + ibeacon.toString());
+            }
+        };
     }
 
     @Override

@@ -8,13 +8,33 @@ public class Pomieszczenie {
     String poziom;
     String pomieszczenie_typ;
     String opiekun;
+    String konsultacje;
+    String obecnosc;
 
 
-    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ, String opiekun) {
+    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ,String opiekun, String konsultacje, String obecnosc) {
         this.pomieszczenie = pomieszczenie;
         this.poziom = poziom;
         this.pomieszczenie_typ = pomieszczenie_typ;
         this.opiekun = opiekun;
+        this.konsultacje = konsultacje;
+        this.obecnosc = obecnosc;
+    }
+
+    public String getObecnosc() {
+        return obecnosc;
+    }
+
+    public void setObecnosc(String obecnosc) {
+        this.obecnosc = obecnosc;
+    }
+
+    public String getKonsultacje() {
+        return konsultacje;
+    }
+
+    public void setKonsultacje(String konsultacje) {
+        this.konsultacje = konsultacje;
     }
 
     public void setPomieszczenie(String pomieszczenie) {

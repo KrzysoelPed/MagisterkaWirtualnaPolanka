@@ -113,6 +113,22 @@
             android:textSize="18dp"
             android:textStyle="bold">
         </EditText>
+        <EditText
+            android:id="@+id/konsultacje"
+            android:layout_centerHorizontal="true"
+            android:layout_width="550dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="440dp"
+            android:background="@drawable/edit_text_view"
+            android:hint="Konsultacje"
+            android:paddingStart="15dp"
+            android:shadowColor="@color/white"
+            android:textColor="@color/black"
+            android:textColorLink="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold">
+        </EditText>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_value"
@@ -120,7 +136,7 @@
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="440dp"
+            android:layout_marginTop="490dp"
             android:background="@drawable/button_view"
             android:text="Dodaj pomieszczenie"
             android:textSize="18dp"
