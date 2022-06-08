@@ -1,5 +1,6 @@
 package com.kp.wirtualnapolanka;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.nfc.Tag;
@@ -21,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class Room_detail extends AppCompatActivity {
 
@@ -95,6 +98,30 @@ public class Room_detail extends AppCompatActivity {
                 Intent i = new Intent(Room_detail.this, Qr_code_generator.class);
                 i.putExtra("qrGenerator", id);
                 startActivity(i);
+            }
+        });
+
+        Button openDoor = findViewById(R.id.openDoor);
+        openDoor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(openDoor.getText().equals("OTWÓRZ")){
+                    openDoor.setText("ZAMKNIJ");
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("obecnosc", "OBECNY");
+                    mDataRef.child("220").updateChildren(hashMap);
+                }
+                else
+                {
+                    openDoor.setText("OTWÓRZ");
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("obecnosc", "NIEOBECNY");
+                    mDataRef.child("220").updateChildren(hashMap);
+                }
+
+
+
             }
         });
 

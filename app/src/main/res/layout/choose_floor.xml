@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ground"
             android:layout_width="550dp"
@@ -39,7 +38,7 @@
             android:layout_marginLeft="50dp"
             android:layout_below="@+id/search"
             android:layout_centerInParent="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
             android:text="PARTER"
             android:textStyle="bold"
             android:textSize="18dp"

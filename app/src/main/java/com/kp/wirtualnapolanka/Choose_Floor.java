@@ -29,9 +29,9 @@ import java.util.ArrayList;
 public class Choose_Floor extends AppCompatActivity {
 
     Toolbar toolbar;
-    ImageButton button_ground;
-    ImageButton button_first_floor;
-    ImageButton button_second_floor;
+    Button button_ground;
+    Button button_first_floor;
+    Button button_second_floor;
     Intent button_ground_intent;
     Intent button_first_floor_intent;
     Intent button_second_floor_intent;
@@ -110,6 +110,7 @@ public class Choose_Floor extends AppCompatActivity {
                                             Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
+                                            dataFromDb.clear();
                                             startActivity(intent);
                                             break;
                                         }
@@ -117,6 +118,7 @@ public class Choose_Floor extends AppCompatActivity {
                                             Intent intent = new Intent(Choose_Floor.this, First_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
+                                            dataFromDb.clear();
                                             startActivity(intent);
                                             break;
                                         }
@@ -125,6 +127,7 @@ public class Choose_Floor extends AppCompatActivity {
                                             Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
+                                            dataFromDb.clear();
                                             startActivity(intent);
                                             break;
                                         }
@@ -140,6 +143,7 @@ public class Choose_Floor extends AppCompatActivity {
                                         Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;
+                                        dataFromDb.clear();
                                         startActivity(intent);
                                         break;
                                     }
@@ -147,6 +151,7 @@ public class Choose_Floor extends AppCompatActivity {
                                         Intent intent = new Intent(Choose_Floor.this, First_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;
+                                        dataFromDb.clear();
                                         startActivity(intent);
                                         break;
                                     }
@@ -155,6 +160,7 @@ public class Choose_Floor extends AppCompatActivity {
                                         Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;
+                                        dataFromDb.clear();
                                         startActivity(intent);
                                         break;
                                     }
@@ -188,6 +194,7 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_ground_intent = new Intent(Choose_Floor.this, Ground_floor.class);
+                dataFromDb.clear();
                 startActivity(button_ground_intent);
             }
         });
@@ -196,6 +203,7 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_first_floor_intent = new Intent(Choose_Floor.this, First_floor.class);
+                dataFromDb.clear();
                 startActivity(button_first_floor_intent);
             }
         });
@@ -204,6 +212,7 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_second_floor_intent = new Intent(Choose_Floor.this, Second_floor.class);
+                dataFromDb.clear();
                 startActivity(button_second_floor_intent);
             }
         });
