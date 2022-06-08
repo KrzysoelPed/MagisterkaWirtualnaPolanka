@@ -99,27 +99,14 @@ public class Choose_Floor extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             String name = search.getText().toString();
-                            Log.d("tag", "Nazwa po kliknieciu -> " + name);
-                            //Log.d("tag", "ds.getKey -> " + ds.getKey());
-                            //Log.d("tag", "dopasowanie -> " + dataString.matches(temp));
+
                             for(DataSnapshot ds:snapshot.getChildren()) {
 
                                 if (ds.child("osoba").getValue() != null) {
-                                    //String tempName = "(.*)" + name;
-                                    Log.d("tag", "Name -> " + name);
-                                    Log.d("tag", "ds.child(osoba) name -> " + ds.child("osoba").getValue().toString());
-                                    Log.d("tag", "Equals -> " + ds.child("osoba").getValue().equals(name));
-
-
                                     if (ds.child("osoba").getValue().equals(name)) {
-                                        Log.d("tag", "Wykryto nazwe -> " + ds.child("osoba").getValue().toString());
                                         String idName = ds.child("id").getValue().toString();
 
-                                        Log.d("tag", "idName -> " + idName);
-
-                                        Log.d("tag", "Pierwszy znak z id -> " + idName.charAt(0));
                                         if (idName.charAt(0) == '0') {
-                                            Log.d("tag", "Przechodze do 0 -> " + idName.charAt(0));
                                             Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
@@ -127,7 +114,6 @@ public class Choose_Floor extends AppCompatActivity {
                                             break;
                                         }
                                         if (idName.charAt(0) == '1') {
-                                            Log.d("tag", "Przechodze do 1 -> " + idName.charAt(0));
                                             Intent intent = new Intent(Choose_Floor.this, First_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
@@ -136,7 +122,6 @@ public class Choose_Floor extends AppCompatActivity {
                                         }
 
                                         if (idName.charAt(0) == '2') {
-                                            Log.d("tag", "Przechodze do 2 -> " + idName.charAt(0));
                                             Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
@@ -148,14 +133,10 @@ public class Choose_Floor extends AppCompatActivity {
                                 }
 
                                 if (ds.child("id").getValue().equals(name)) {
-                                    Log.d("tag", "Wykryto nazwe -> " + ds.child("osoba").getValue().toString());
+
                                     String idName = ds.child("id").getValue().toString();
 
-                                    Log.d("tag", "idName -> " + idName);
-
-                                    Log.d("tag", "Pierwszy znak z id -> " + idName.charAt(0));
                                     if (idName.charAt(0) == '0') {
-                                        Log.d("tag", "Przechodze do 0 -> " + idName.charAt(0));
                                         Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;
@@ -163,7 +144,6 @@ public class Choose_Floor extends AppCompatActivity {
                                         break;
                                     }
                                     if (idName.charAt(0) == '1') {
-                                        Log.d("tag", "Przechodze do 1 -> " + idName.charAt(0));
                                         Intent intent = new Intent(Choose_Floor.this, First_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;
@@ -172,7 +152,6 @@ public class Choose_Floor extends AppCompatActivity {
                                     }
 
                                     if (idName.charAt(0) == '2') {
-                                        Log.d("tag", "Przechodze do 2 -> " + idName.charAt(0));
                                         Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                         intent.putExtra("IDFromSearch", idName);
                                         idName = null;

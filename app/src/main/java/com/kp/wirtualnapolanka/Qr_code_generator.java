@@ -28,7 +28,6 @@ public class Qr_code_generator extends AppCompatActivity {
         setContentView(R.layout.qr_code_generator);
 
         dataToQr = (String) getIntent().getStringExtra("qrGenerator");
-        Log.d(TAG, "Qr jaki: " + dataToQr);
         ivOutput = findViewById(R.id.iv_output);
 
         MultiFormatWriter writer = new MultiFormatWriter();

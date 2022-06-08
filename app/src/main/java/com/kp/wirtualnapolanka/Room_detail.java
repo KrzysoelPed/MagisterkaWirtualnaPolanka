@@ -36,7 +36,6 @@ public class Room_detail extends AppCompatActivity {
     String idMap;
     String id;
     String idBase;
-
     String rDetailPerson;
     String rDetailName;
     String rDetailInfo;
@@ -81,11 +80,8 @@ public class Room_detail extends AppCompatActivity {
             id = idScan;
         }
 
-        Log.d(TAG, "Jaki oddd intenta: " + id);
-
         id = id.replace("p", "");
         idBase = id;
-        Log.d(TAG, "Jaki do bazy od intenta: " + id);
 
         TextView roomIdTextView = findViewById(R.id.roomIdTextView);
         roomIdTextView.setText("Pokój: " + idBase);
@@ -98,7 +94,6 @@ public class Room_detail extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Room_detail.this, Qr_code_generator.class);
                 i.putExtra("qrGenerator", id);
-                Log.d(TAG, "Jaki do intenta: " + id);
                 startActivity(i);
             }
         });
@@ -113,10 +108,6 @@ public class Room_detail extends AppCompatActivity {
                     rTimeInfo = (String) snapshot.child(idBase).child("konsultacje").getValue();
                     rPresenceInfo = (String) snapshot.child(idBase).child("obecnosc").getValue();
 
-
-
-                    Log.d(TAG, "Jaka wartosc ma rDetailPerson = " + rDetailPerson);
-                    Log.d(TAG, "Jaka wartosc ma rDetailName = " + rDetailName);
 
 
                     if(rDetailName.equals("Pokój prywatny")){
@@ -159,21 +150,8 @@ public class Room_detail extends AppCompatActivity {
 
                     }
 
-
-
-
-                    //roomDetail = String.valueOf(snapshot.child("019").child("opiekun").getValue());
-                     //= (String) snapshot.child(idBase).child("opiekun").getValue();
-                    //roomDetail = (String) snapshot.child(idBase).child("opiekun").getValue();
-
-                    //Log.d(TAG, "Jaka wartosc ma roomDetail = " + id);
-
-                    //roomIdTextView.setText(idBase);
-                    //roomDetailTextView.setText(roomDetail);
-
                     findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                     findViewById(R.id.roomDetailPanel).setVisibility(View.VISIBLE);
-
 
                 }
             }
@@ -183,8 +161,6 @@ public class Room_detail extends AppCompatActivity {
                 Log.d(TAG, "Problem z odczytem");
             }
         });
-
-
 
     }
 
