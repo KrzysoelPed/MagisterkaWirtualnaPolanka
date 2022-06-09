@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Oj, coś poszło nie tak", Toast.LENGTH_LONG).show();
         }
 
-        proximityManager = ProximityManagerFactory.create(this);
-        proximityManager.setIBeaconListener(createIBeaconListener());
+        //proximityManager = ProximityManagerFactory.create(this);
+        //proximityManager.setIBeaconListener(createIBeaconListener());
 
     }
-
+/*
     private BroadcastReceiver BroadcastReceiver3 = new BroadcastReceiver () {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater ();

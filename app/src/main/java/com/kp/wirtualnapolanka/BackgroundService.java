@@ -58,12 +58,12 @@ public void CheckBeacon()
                 String action = intent.getAction ();
                 if (action.equals (BluetoothDevice.ACTION_FOUND)) {
                     device = intent.getParcelableExtra (BluetoothDevice.EXTRA_DEVICE);
-                    if (device.getAddress ().contains ("CA:17:C9")) {
+                    if (device.getAddress ().contains ("CE:FB:EA")) {
                         btDeviceAddress = device.getAddress ();
                         int rssi = intent.getShortExtra (BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
                         stringArrayList.add (btDeviceAddress);
                         for (int i = 0; i < stringArrayList.size (); i++) {
-                            if (stringArrayList.get (i).contains ("CA:17:C9")) {
+                            if (stringArrayList.get (i).contains ("CE:FB:EA")) {
                                 first = stringArrayList.get (i);
                                 mac_kontakt = first;
                             }
@@ -72,13 +72,13 @@ public void CheckBeacon()
                         Log.i ("TEST RSSI", String.valueOf (rssi));
 
                         if (deviceAddress.equals ("02:00:00:00:00:00")) {
-                            if (btDeviceAddress.contains ("CA:17:C9")) {
-                                if (rssi > -45) {
+                            if (btDeviceAddress.contains ("CE:FB:EA")) {
+                                if (rssi > -60) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "OBECNY");
                                     pomieszczeniedBref.child ("220").updateChildren (hashMap);
                                     bluetoothAdapter.cancelDiscovery ();
-                                } else if (rssi <= -45) {
+                                } else if (rssi <= -60) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "NIEOBECNY");
                                     pomieszczeniedBref.child ("220").updateChildren (hashMap);
