@@ -53,12 +53,27 @@
             android:background="@drawable/button_view_1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/strona_wydzialowa"
+            android:id="@+id/qrCodeScan"
             android:layout_width="550dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_below="@+id/wybor_pietra"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:text="Skaner kodów QR"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/strona_wydzialowa"
+            android:layout_width="550dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/qrCodeScan"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             android:text="@string/strona_wydzialowa"
@@ -81,7 +96,6 @@
             android:textSize="18dp"
             android:textColor="@color/white"
             android:background="@drawable/button_view" />
-
 
 
     </RelativeLayout>

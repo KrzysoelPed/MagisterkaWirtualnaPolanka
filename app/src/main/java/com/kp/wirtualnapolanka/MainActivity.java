@@ -1,8 +1,11 @@
 package com.kp.wirtualnapolanka;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -23,6 +26,9 @@ import android.widget.Toast;
 //import com.kontakt.sdk.android.common.KontaktSDK;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import com.kontakt.sdk.android.ble.connection.OnServiceReadyListener;
 import com.kontakt.sdk.android.ble.manager.ProximityManager;
 import com.kontakt.sdk.android.ble.manager.ProximityManagerFactory;
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ProximityManager proximityManager;
     Toolbar toolbar;
     Button choose_floor_button;
+    Button qr_scan_button;
     Boolean czy_zalogowano;
     Intent choose_floor_view;
     Intent login_panel;
@@ -54,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
         toolbar = findViewById (R.id.toolbar);
-
         setSupportActionBar(toolbar);
         KontaktSDK.initialize("XHXFxewaYczrqlXxCqIgOFFZiMUUUetY");
         Intent get_login_value = getIntent ();
@@ -76,6 +82,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity (choose_floor_view);
             }
         });
+
+        qr_scan_button = findViewById(R.id.qrCodeScan);
+
+        qr_scan_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
+
+                intentIntegrator.setPrompt("W celu użycia lampki, użyj przycisku głośności w górę");
+
+                intentIntegrator.setBeepEnabled(true);
+
+                intentIntegrator.setOrientationLocked(true);
+
+                intentIntegrator.setCaptureActivity(Capture.class);
+
+                intentIntegrator.initiateScan();
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if (intentResult.getContents() != null){
+            Intent scanIntent = new Intent(MainActivity.this, Room_detail.class);
+            scanIntent.putExtra("scanQr", intentResult.getContents());
+            startActivity(scanIntent);
+        }else {
+            Toast.makeText(getApplicationContext(), "Oj, coś poszło nie tak", Toast.LENGTH_LONG).show();
+        }
 
         proximityManager = ProximityManagerFactory.create(this);
         proximityManager.setIBeaconListener(createIBeaconListener());

@@ -10,31 +10,226 @@
 
     <include layout="@layout/toolbar" android:id="@id/toolbar"/>
 
+
     <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/roomDetailPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
         <TextView
             android:id="@+id/roomIdTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_view_1"
+            android:textSize="35sp"
             android:layout_marginTop="100dp"
             android:text="Pokój: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="5dp"
+
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/baza"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/roomDetailLayout"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_below="@id/roomIdTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:text="DANE POBIERANE Z BAZY"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:id="@+id/roomDetailImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/roomDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:text="SZCZEGÓŁY "
+                android:background="@drawable/button_view"
+                android:textColor="@color/white"
+                android:padding="7dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginRight="30dp"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/roomDetailInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/roomDetailLayout"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="Prof. Dr hab. inż. Jerzy Tyszer"
+            android:background="@drawable/button_view_1"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             tools:ignore="MissingConstraints" />
 
+        <LinearLayout
+            android:id="@+id/timeLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/roomDetailInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/timeImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/timeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/button_view"
+                android:padding="7dp"
+                android:textSize="17sp"
+                android:text="KONSULTACJE"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/timeInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_view_1"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/presenceLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/timeInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/presenceImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/presenceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/button_view"
+                android:padding="7dp"
+                android:textSize="17sp"
+                android:text="OBECNOŚĆ"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/presenceInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/presenceLayout"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="NIEOBECNY"
+            android:background="@drawable/button_view_1"
+            android:textColor="@color/red"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/qrGeneratorButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/presenceInfo"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:text="Kod qr"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/openDoor"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/qrGeneratorButton"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
+            android:text="OTWÓRZ"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_view" />
+
+
     </RelativeLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

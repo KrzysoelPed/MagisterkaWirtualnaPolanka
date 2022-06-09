@@ -631,10 +631,6 @@
                 android:layout_marginStart="330dp"
                 android:layout_marginTop="333dp" />
 
-
-
-
-
         </RelativeLayout>
     </com.otaliastudios.zoom.ZoomLayout>
 

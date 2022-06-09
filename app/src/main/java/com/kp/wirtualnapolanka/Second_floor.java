@@ -1,7 +1,15 @@
 package com.kp.wirtualnapolanka;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,7 +22,9 @@ public class Second_floor extends AppCompatActivity {
     Toolbar toolbar;
     Button[] secondFloorButtons = new Button[45];
     Intent buttonSecondFloorIntent;
+    int idSearch = 0;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -318,6 +328,17 @@ public class Second_floor extends AppCompatActivity {
                 clickOnRoomButton(v);
             }
         });
+
+        if(getIntent().getStringExtra("IDFromSearch") != null)
+        idSearch = Integer.parseInt(getIntent().getStringExtra("IDFromSearch").substring(1));
+        if(idSearch != 0){
+            ObjectAnimator colorAnim = ObjectAnimator.ofInt(secondFloorButtons[idSearch], "textColor", Color.RED, Color.TRANSPARENT);
+            colorAnim.setDuration(1000);
+            colorAnim.setEvaluator(new ArgbEvaluator());
+            colorAnim.setRepeatCount(ValueAnimator.INFINITE);
+            colorAnim.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnim.start();
+        }
     }
 
     public void clickOnRoomButton(View v){
