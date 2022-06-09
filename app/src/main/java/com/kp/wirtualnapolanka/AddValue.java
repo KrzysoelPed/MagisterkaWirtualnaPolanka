@@ -41,6 +41,7 @@ import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 public class AddValue extends AppCompatActivity {
@@ -51,7 +52,7 @@ public class AddValue extends AppCompatActivity {
     EditText poziom_budynku;
     EditText konsultacje;
     EditText opiekun_sali;
-    String pomieszczenie,poziom,kons,opiekun,typ_pom, obecnosc, btDeviceAddress,deviceAddress, first;
+    String pomieszczenie,poziom,kons,opiekun,typ_pom, obecnosc, btDeviceAddress,deviceAddress, first,mac_user,mac_kontakt;
     Button add_value;
     Spinner type_spinner;
     BluetoothDevice device;
@@ -92,6 +93,7 @@ public class AddValue extends AppCompatActivity {
         {
             bluetoothAdapter.startDiscovery ();
             deviceAddress = bluetoothAdapter.getAddress ();
+            mac_user = deviceAddress;
             mBroadCastReceiver = new BroadcastReceiver () {
                 @Override
                 public void onReceive(Context context, Intent intent) {
@@ -105,6 +107,7 @@ public class AddValue extends AppCompatActivity {
                             for (int i = 0; i < stringArrayList.size (); i++) {
                                 if (stringArrayList.get (i).contains ("CA:17:C9")) {
                                     first = stringArrayList.get (i);
+                                    mac_kontakt = first;
                                 }
                             }
 
@@ -116,10 +119,19 @@ public class AddValue extends AppCompatActivity {
                                 if (btDeviceAddress.contains ("CA:17:C9")) {
                                     if (rssi > -45) {
                                         Log.i ("BLUETOOTH PAIR", "POPRAWNE SPAROWANIE");
-                                        obecnosc = "OBECNY";
+                                        HashMap hashMap = new HashMap ();
+                                        hashMap.put("obecnosc", "OBECNY");
+                                        pomieszczeniedBref.child ("220").updateChildren (hashMap);
+                                        bluetoothAdapter.cancelDiscovery ();
+                                        //obecnosc = "OBECNY";
                                     } else if (rssi <= -45) {
                                         Log.i ("BLUETOOTH PAIR", "NIEPOPRAWNE SPAROWANIE");
-                                        obecnosc = "NIEOBECNY";
+                                        HashMap hashMap = new HashMap ();
+                                        hashMap.put("obecnosc", "NIEOBECNY");
+                                        pomieszczeniedBref.child ("220").updateChildren (hashMap);
+                                        bluetoothAdapter.cancelDiscovery ();
+                                        unregisterReceiver (mBroadCastReceiver);
+                                        //obecnosc = "NIEOBECNY";
                                     }
                                 }
                             }
@@ -128,6 +140,8 @@ public class AddValue extends AppCompatActivity {
                     }
 
                 }
+
+
             };
 
 
@@ -158,7 +172,7 @@ public class AddValue extends AppCompatActivity {
                 //obecnosc = "NIEOBECNY";
                 Osoba newOsoba = new Osoba (pomieszczenie);
                 pomieszczeniedBref_os.child (opiekun).setValue (newOsoba);
-                Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, obecnosc);
+                Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, obecnosc, mac_user, mac_kontakt);
                 pomieszczeniedBref.child (pomieszczenie).setValue(newPomieszczenie);
             }
         });

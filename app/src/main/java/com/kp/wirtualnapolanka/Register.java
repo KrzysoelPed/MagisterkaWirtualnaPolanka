@@ -164,6 +164,7 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             mAuth.createUserWithEmailAndPassword (email_text, pass_text);
+                            Log.i("TEST REGISTER", "DODANO NOWEGO AUTH");
                             Intent new_intent = new Intent (Register.this, MainActivity.class);
                             startActivity (new_intent);
                             Toast.makeText (Register.this, "Zarejestrowano pomyslnie!", Toast.LENGTH_LONG).show ();
