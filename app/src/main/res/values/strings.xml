@@ -13,5 +13,6 @@
         <item>Sala wykładowa</item>
         <item>Sala ćwiczeniowa</item>
         <item>Sala laboratoryjna</item>
+        <item>Pokój prywatny</item>
     </string-array>
 </resources>

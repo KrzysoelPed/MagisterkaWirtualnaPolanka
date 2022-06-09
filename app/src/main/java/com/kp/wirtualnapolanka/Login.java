@@ -3,6 +3,7 @@ package com.kp.wirtualnapolanka;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.BoringLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,34 +51,42 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String login_mail = mEmailLogin.getText ().toString ();
                 String login_pass = mPassLogin.getText ().toString ();
+                Log.i("TEST", "KRZYSZTOF - WSZEDLEM");
+                startService (new Intent (getApplication (),BackgroundService.class));
 
                 if(login_mail.isEmpty ())
                 {
                     mEmailLogin.setError ("Brak adresu e-mail");
                     mEmailLogin.requestFocus();
                     czy_logowac = false;
+                    Log.i("TEST", "KRZYSZTOF - ADRESU");
                 }
                 else
                 {
                     czy_logowac = true;
+                    Log.i("TEST", "KRZYSZTOF - ADRESU ELSE");
                 }
                 if(login_pass.isEmpty ())
                 {
                     mPassLogin.setError ("Brak hasła użytkownika");
                     mPassLogin.requestFocus();
                     czy_logowac = false;
+                    Log.i("TEST", "KRZYSZTOF - BRAK HASLA");
                 }
                 else
                 {
                     czy_logowac= true;
+                    Log.i("TEST", "KRZYSZTOF - HASLA ELSE");
                 }
 
-                if(czy_logowac = true)
+                if(czy_logowac)
                 {
+                    Log.i("TEST", "KRZYSZTOF - AUTH");
                     mAuth.signInWithEmailAndPassword (login_mail, login_pass).addOnSuccessListener (new OnSuccessListener<AuthResult> () {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             zalogowany = true;
+                            Log.i("TEST", "KRZYSZTOF - WSZEDLEM DO LOGOWANIA");
                             Intent new_intent = new Intent (Login.this, MainActivity.class);
                             new_intent.putExtra ("czy_zalogowany",zalogowany);
                             startActivity (new_intent);
