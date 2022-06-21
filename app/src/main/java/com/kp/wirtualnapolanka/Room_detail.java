@@ -187,11 +187,14 @@ public class Room_detail extends AppCompatActivity {
         });
 
     }
+    /*
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(Room_detail.this, Choose_Floor.class);
         startActivity(intent);
     }
+
+     */
 
 }

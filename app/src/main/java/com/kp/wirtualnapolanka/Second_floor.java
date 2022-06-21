@@ -346,7 +346,7 @@ public class Second_floor extends AppCompatActivity {
         id = id.replace("com.kp.wirtualnapolanka:id/","");
         buttonSecondFloorIntent = new Intent(Second_floor.this, Room_detail.class);
         buttonSecondFloorIntent.putExtra("roomID", id);
-        buttonSecondFloorIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //buttonSecondFloorIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(buttonSecondFloorIntent);
         finish();
     }

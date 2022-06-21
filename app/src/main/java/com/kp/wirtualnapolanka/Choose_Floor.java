@@ -92,30 +92,26 @@ public class Choose_Floor extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             String name = search.getText().toString();
-                            Log.d("TAG", "Test name: " + name);
                             for(DataSnapshot ds:snapshot.getChildren()) {
 
                                 if (ds.child("osoba").getValue() != null) {
                                     if (ds.child("osoba").getValue().equals(name)) {
                                         String idName = ds.child("id").getValue().toString();
-                                        Log.d("TAG", "Test idName1: " + idName);
 
                                         if (idName.charAt(0) == '0') {
                                             Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
-                                            dataFromDb.clear();
                                             startActivity(intent);
-
+                                            search.setText("");
                                             break;
                                         }
                                         if (idName.charAt(0) == '1') {
                                             Intent intent = new Intent(Choose_Floor.this, First_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
-                                            dataFromDb.clear();
                                             startActivity(intent);
-                                            //finish();
+                                            search.setText("");
                                             break;
                                         }
 
@@ -123,49 +119,44 @@ public class Choose_Floor extends AppCompatActivity {
                                             Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
                                             intent.putExtra("IDFromSearch", idName);
                                             idName = null;
-                                            dataFromDb.clear();
                                             startActivity(intent);
-                                            //finish();
+                                            search.setText("");
                                             break;
                                         }
                                     }
 
                                 }
-                                Log.d("TAG", "Test 0");
-                                Log.d("TAG", "Test ds child" + ds.child("id").getValue());
+                            }
 
                                 mDataRef2.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for(DataSnapshot ds:snapshot.getChildren()) {
                                             if (ds.child("pomieszczenie").getValue().equals(name)) {
+                                                String idName2 = ds.child("pomieszczenie").getValue().toString();
 
-                                                String idName = ds.child("pomieszczenie").getValue().toString();
-                                                Log.d("TAG", "Test idName2: " + idName);
-
-                                                if (idName.charAt(0) == '0') {
+                                                if (idName2.charAt(0) == '0') {
                                                     Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
-                                                    intent.putExtra("IDFromSearch", idName);
-                                                    idName = null;
-                                                    dataFromDb.clear();
+                                                    intent.putExtra("IDFromSearch", idName2);
                                                     startActivity(intent);
+                                                    search.setText("");
+                                                    Log.d("TAG", "StartActivity4: " + idName2);
                                                     break;
                                                 }
-                                                if (idName.charAt(0) == '1') {
+                                                if (idName2.charAt(0) == '1') {
                                                     Intent intent = new Intent(Choose_Floor.this, First_floor.class);
-                                                    intent.putExtra("IDFromSearch", idName);
-                                                    idName = null;
-                                                    dataFromDb.clear();
+                                                    intent.putExtra("IDFromSearch", idName2);
                                                     startActivity(intent);
+                                                    search.setText("");
                                                     break;
                                                 }
 
-                                                if (idName.charAt(0) == '2') {
+                                                if (idName2.charAt(0) == '2') {
                                                     Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
-                                                    intent.putExtra("IDFromSearch", idName);
-                                                    idName = null;
-                                                    dataFromDb.clear();
+                                                    intent.putExtra("IDFromSearch", idName2);
                                                     startActivity(intent);
+                                                    search.setText("");
+                                                    Log.d("TAG", "StartActivity6: " + idName2);
                                                     break;
                                                 }
                                             }
@@ -178,12 +169,6 @@ public class Choose_Floor extends AppCompatActivity {
 
                                     }
                                 });
-
-
-                                Log.d("TAG", "Test 02");
-
-                            }
-
                         }
                     });
 
@@ -241,10 +226,4 @@ public class Choose_Floor extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(Choose_Floor.this, MainActivity.class);
-        startActivity(intent);
-    }
 }
