@@ -146,12 +146,12 @@ public class Ground_floor extends AppCompatActivity {
     }
 
     public void clickOnRoomButton(View v){
-        //id = setIdForRoom(v);
         String id = v.getResources().getResourceName(v.getId());
         id = id.replace("com.kp.wirtualnapolanka:id/","");
         buttonGroundFloorIntent = new Intent(Ground_floor.this, Room_detail.class);
         buttonGroundFloorIntent.putExtra("roomID", id);
         startActivity(buttonGroundFloorIntent);
+        finish();
     }
 
     public void createButton(){

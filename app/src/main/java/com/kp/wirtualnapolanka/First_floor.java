@@ -325,6 +325,7 @@ public class First_floor extends AppCompatActivity {
         buttonFirstFloorIntent = new Intent(First_floor.this, Room_detail.class);
         buttonFirstFloorIntent.putExtra("roomID", id);
         startActivity(buttonFirstFloorIntent);
+        finish();
     }
 
     public void createButton(){

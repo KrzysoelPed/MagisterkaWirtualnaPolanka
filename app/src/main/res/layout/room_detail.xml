@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -25,14 +25,15 @@
     </RelativeLayout>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <RelativeLayout
         android:id="@+id/roomDetailPanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="invisible">
+
+    <RelativeLayout
+        android:id="@+id/roomDetailPanel2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/roomIdTextView"
@@ -62,7 +63,6 @@
                 android:id="@+id/roomDetailImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="10dp"
                 android:layout_gravity="center_vertical"
@@ -211,7 +211,7 @@
             android:textSize="18dp"
             android:textColor="@color/white"
             android:background="@drawable/button_view" />
-
+<!--
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/openDoor"
             android:layout_width="150dp"
@@ -227,7 +227,7 @@
             android:textSize="18dp"
             android:textColor="@color/white"
             android:background="@drawable/button_view" />
-
+-->
 
     </RelativeLayout>
     </ScrollView>

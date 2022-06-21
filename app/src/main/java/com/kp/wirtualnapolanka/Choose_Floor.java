@@ -92,12 +92,13 @@ public class Choose_Floor extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             String name = search.getText().toString();
-
+                            Log.d("TAG", "Test name: " + name);
                             for(DataSnapshot ds:snapshot.getChildren()) {
 
                                 if (ds.child("osoba").getValue() != null) {
                                     if (ds.child("osoba").getValue().equals(name)) {
                                         String idName = ds.child("id").getValue().toString();
+                                        Log.d("TAG", "Test idName1: " + idName);
 
                                         if (idName.charAt(0) == '0') {
                                             Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
@@ -105,6 +106,7 @@ public class Choose_Floor extends AppCompatActivity {
                                             idName = null;
                                             dataFromDb.clear();
                                             startActivity(intent);
+
                                             break;
                                         }
                                         if (idName.charAt(0) == '1') {
@@ -113,6 +115,7 @@ public class Choose_Floor extends AppCompatActivity {
                                             idName = null;
                                             dataFromDb.clear();
                                             startActivity(intent);
+                                            //finish();
                                             break;
                                         }
 
@@ -122,42 +125,62 @@ public class Choose_Floor extends AppCompatActivity {
                                             idName = null;
                                             dataFromDb.clear();
                                             startActivity(intent);
+                                            //finish();
                                             break;
                                         }
                                     }
 
                                 }
+                                Log.d("TAG", "Test 0");
+                                Log.d("TAG", "Test ds child" + ds.child("id").getValue());
 
-                                if (ds.child("id").getValue().equals(name)) {
+                                mDataRef2.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for(DataSnapshot ds:snapshot.getChildren()) {
+                                            if (ds.child("pomieszczenie").getValue().equals(name)) {
 
-                                    String idName = ds.child("id").getValue().toString();
+                                                String idName = ds.child("pomieszczenie").getValue().toString();
+                                                Log.d("TAG", "Test idName2: " + idName);
 
-                                    if (idName.charAt(0) == '0') {
-                                        Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
-                                        intent.putExtra("IDFromSearch", idName);
-                                        idName = null;
-                                        dataFromDb.clear();
-                                        startActivity(intent);
-                                        break;
+                                                if (idName.charAt(0) == '0') {
+                                                    Intent intent = new Intent(Choose_Floor.this, Ground_floor.class);
+                                                    intent.putExtra("IDFromSearch", idName);
+                                                    idName = null;
+                                                    dataFromDb.clear();
+                                                    startActivity(intent);
+                                                    break;
+                                                }
+                                                if (idName.charAt(0) == '1') {
+                                                    Intent intent = new Intent(Choose_Floor.this, First_floor.class);
+                                                    intent.putExtra("IDFromSearch", idName);
+                                                    idName = null;
+                                                    dataFromDb.clear();
+                                                    startActivity(intent);
+                                                    break;
+                                                }
+
+                                                if (idName.charAt(0) == '2') {
+                                                    Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
+                                                    intent.putExtra("IDFromSearch", idName);
+                                                    idName = null;
+                                                    dataFromDb.clear();
+                                                    startActivity(intent);
+                                                    break;
+                                                }
+                                            }
+                                        }
+
                                     }
-                                    if (idName.charAt(0) == '1') {
-                                        Intent intent = new Intent(Choose_Floor.this, First_floor.class);
-                                        intent.putExtra("IDFromSearch", idName);
-                                        idName = null;
-                                        dataFromDb.clear();
-                                        startActivity(intent);
-                                        break;
-                                    }
 
-                                    if (idName.charAt(0) == '2') {
-                                        Intent intent = new Intent(Choose_Floor.this, Second_floor.class);
-                                        intent.putExtra("IDFromSearch", idName);
-                                        idName = null;
-                                        dataFromDb.clear();
-                                        startActivity(intent);
-                                        break;
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
                                     }
-                                }
+                                });
+
+
+                                Log.d("TAG", "Test 02");
 
                             }
 
@@ -216,5 +239,12 @@ public class Choose_Floor extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Choose_Floor.this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -170,10 +170,10 @@ public class AddValue extends AppCompatActivity {
                 opiekun = opiekun_sali.getText ().toString ();
                 typ_pom = type_spinner.getSelectedItem ().toString ();
                 //obecnosc = "NIEOBECNY";
-                Osoba newOsoba = new Osoba (pomieszczenie);
+                Osoba newOsoba = new Osoba (pomieszczenie, opiekun);
                 pomieszczeniedBref_os.child (opiekun).setValue (newOsoba);
-                Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, obecnosc, mac_user, mac_kontakt);
-                pomieszczeniedBref.child (pomieszczenie).setValue(newPomieszczenie);
+                //Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, obecnosc, mac_user, mac_kontakt);
+                //pomieszczeniedBref.child (pomieszczenie).setValue(newPomieszczenie);
             }
         });
     }
