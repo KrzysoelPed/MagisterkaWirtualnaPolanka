@@ -3,11 +3,11 @@ package com.kp.wirtualnapolanka;
 public class Osoba {
 
     String id;
-    String prowadzacy;
+    String osoba;
 
-    public Osoba(String id) {
+    public Osoba(String id, String osoba) {
         this.id = id;
-
+        this.osoba = osoba;
     }
 
 
@@ -19,11 +19,11 @@ public class Osoba {
         this.id = id;
     }
 
-    public String getProwadzacy() {
-        return prowadzacy;
+    public String getOsoba() {
+        return osoba;
     }
 
-    public void setProwadzacy(String prowadzacy) {
-        this.prowadzacy = prowadzacy;
+    public void setOsoba(String osoba) {
+        this.osoba = osoba;
     }
 }

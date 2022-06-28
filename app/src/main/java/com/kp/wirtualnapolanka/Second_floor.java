@@ -68,9 +68,7 @@ public class Second_floor extends AppCompatActivity {
         secondFloorButtons[5] = findViewById(R.id.p205);
         secondFloorButtons[5].setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                clickOnRoomButton(v);
-            }
+            public void onClick(View v) { clickOnRoomButton(v); }
         });
 
         secondFloorButtons[6] = findViewById(R.id.p206);
@@ -344,10 +342,13 @@ public class Second_floor extends AppCompatActivity {
     public void clickOnRoomButton(View v){
         //id = setIdForRoom(v);
         String id = v.getResources().getResourceName(v.getId());
+        Log.i("Tag", "Tu jestem");
         id = id.replace("com.kp.wirtualnapolanka:id/","");
         buttonSecondFloorIntent = new Intent(Second_floor.this, Room_detail.class);
         buttonSecondFloorIntent.putExtra("roomID", id);
+        //buttonSecondFloorIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(buttonSecondFloorIntent);
+        finish();
     }
 
     public void createButton(){

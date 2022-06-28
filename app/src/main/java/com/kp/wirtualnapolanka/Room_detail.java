@@ -100,7 +100,7 @@ public class Room_detail extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+/*
         Button openDoor = findViewById(R.id.openDoor);
         openDoor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,23 +119,18 @@ public class Room_detail extends AppCompatActivity {
                     hashMap.put("obecnosc", "NIEOBECNY");
                     mDataRef.child("220").updateChildren(hashMap);
                 }
-
-
-
             }
         });
-
+*/
         mDataRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     rDetailPerson = (String) snapshot.child(idBase).child("osoba").getValue();
                     rDetailName = (String) snapshot.child(idBase).child("pomieszczenie_typ").getValue();
-                    rDetailInfo = (String) snapshot.child(idBase).child("pomieszczenie").getValue();
+                    rDetailInfo = (String) snapshot.child(idBase).child("informacje").getValue();
                     rTimeInfo = (String) snapshot.child(idBase).child("konsultacje").getValue();
                     rPresenceInfo = (String) snapshot.child(idBase).child("obecnosc").getValue();
-
-
 
                     if(rDetailName.equals("Pokój prywatny")){
                         roomDetailName.setText("PROWADZĄCY");
@@ -190,5 +185,14 @@ public class Room_detail extends AppCompatActivity {
         });
 
     }
+    /*
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Room_detail.this, Choose_Floor.class);
+        startActivity(intent);
+    }
+
+     */
 
 }

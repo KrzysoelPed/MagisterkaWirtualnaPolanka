@@ -52,7 +52,7 @@ public class AddValue extends AppCompatActivity {
     EditText poziom_budynku;
     EditText konsultacje;
     EditText opiekun_sali;
-    String pomieszczenie,poziom,kons,opiekun,typ_pom, obecnosc, btDeviceAddress,deviceAddress, first,mac_user,mac_kontakt, zamek;
+    String pomieszczenie,poziom,kons,opiekun,typ_pom, obecnosc, btDeviceAddress,deviceAddress, first,mac_user,mac_kontakt;
     Button add_value;
     Spinner type_spinner;
     BluetoothDevice device;
@@ -169,10 +169,10 @@ public class AddValue extends AppCompatActivity {
                 kons = konsultacje.getText ().toString ();
                 opiekun = opiekun_sali.getText ().toString ();
                 typ_pom = type_spinner.getSelectedItem ().toString ();
-                zamek = "ZAMKNIĘTE";
-                Osoba newOsoba = new Osoba (pomieszczenie);
-                pomieszczeniedBref_os.child (opiekun).setValue (newOsoba);
-                Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, obecnosc, mac_user, mac_kontakt,zamek);
+                //obecnosc = "NIEOBECNY";
+                //Osoba newOsoba = new Osoba (pomieszczenie, opiekun);
+                //pomieszczeniedBref_os.child (opiekun).setValue (newOsoba);
+                Pomieszczenie newPomieszczenie = new Pomieszczenie(pomieszczenie, poziom, typ_pom, opiekun, kons, mac_user, mac_kontakt);
                 pomieszczeniedBref.child (pomieszczenie).setValue(newPomieszczenie);
             }
         });

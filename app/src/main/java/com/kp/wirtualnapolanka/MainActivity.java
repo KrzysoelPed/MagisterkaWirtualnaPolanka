@@ -184,18 +184,12 @@ public class MainActivity extends AppCompatActivity {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
 
                 intentIntegrator.setPrompt("W celu użycia lampki, użyj przycisku głośności w górę");
-
                 intentIntegrator.setBeepEnabled(true);
-
                 intentIntegrator.setOrientationLocked(true);
-
                 intentIntegrator.setCaptureActivity(Capture.class);
-
                 intentIntegrator.initiateScan();
             }
         });
-
-
     }
 
     @Override
@@ -218,8 +212,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater ();
         inflater.inflate (R.menu.toolbar_menu, menu);
-
-
         return true;
     }
 
