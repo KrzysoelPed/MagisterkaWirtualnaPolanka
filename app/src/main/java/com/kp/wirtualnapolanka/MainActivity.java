@@ -27,6 +27,7 @@ import android.widget.Toast;
 //import com.kontakt.sdk.android.common.KontaktSDK;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
     Intent choose_floor_view;
     Intent login_panel;
     Intent register_panel;
-    Intent add_new_value;
+    Intent add_new_value, refresh;
     Intent kontakt_intent;
+    FirebaseAuth mAuth;
     FirebaseDatabase db;
     DatabaseReference pomieszczeniedBref;
     MenuItem mLogout, mLogin, mSign;
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView (R.layout.activity_main);
         toolbar = findViewById (R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mAuth = FirebaseAuth.getInstance ();
         KontaktSDK.initialize("XHXFxewaYczrqlXxCqIgOFFZiMUUUetY");
         db = FirebaseDatabase.getInstance ();
         pomieszczeniedBref = db.getReference ("Pomieszczenie");
@@ -239,7 +241,10 @@ public class MainActivity extends AppCompatActivity {
                 add_new_value = new Intent (MainActivity.this, AddValue.class);
                 startActivity (add_new_value);
                 return true;
-
+            case R.id.Wyloguj:
+                mAuth.signOut ();
+                refresh = new Intent (MainActivity.this, MainActivity.class);
+                startActivity (refresh);
             default:
                 return super.onOptionsItemSelected (item);
         }
