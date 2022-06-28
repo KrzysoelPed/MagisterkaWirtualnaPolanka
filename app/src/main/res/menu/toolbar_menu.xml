@@ -10,13 +10,13 @@
         android:title="Panel rejestracji"
         />
     <item android:id="@+id/DodajRekord"
-        android:visible="true"
+        android:visible="false"
         android:title="Dodaj pomieszczenie"
         />
     <item android:id="@+id/Kontakt_menu"
         android:title="Kontakt"
         android:visible="true"/>
     <item android:id="@+id/Wyloguj"
-        android:visible="true"
+        android:visible="false"
         android:title="Wyloguj"/>
 </menu>

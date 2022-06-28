@@ -73,12 +73,12 @@ public void CheckBeacon()
 
                         if (deviceAddress.equals ("02:00:00:00:00:00")) {
                             if (btDeviceAddress.contains ("CE:FB:EA")) {
-                                if (rssi > -60) {
+                                if (rssi > -68) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "OBECNY");
                                     pomieszczeniedBref.child ("205").updateChildren (hashMap);
                                     bluetoothAdapter.cancelDiscovery ();
-                                } else if (rssi <= -60) {
+                                } else if (rssi <= -68) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "NIEOBECNY");
                                     pomieszczeniedBref.child ("205").updateChildren (hashMap);

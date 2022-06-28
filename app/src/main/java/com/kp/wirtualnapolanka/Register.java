@@ -168,6 +168,7 @@ public class Register extends AppCompatActivity {
                             Intent new_intent = new Intent (Register.this, MainActivity.class);
                             startActivity (new_intent);
                             Toast.makeText (Register.this, "Zarejestrowano pomyslnie!", Toast.LENGTH_LONG).show ();
+                            finish();
                         }
                     });
                 }

@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent open_register_activity = new Intent (Login.this, Register.class);
                 startActivity (open_register_activity);
+                finish();
             }
         });
 
@@ -96,13 +97,14 @@ public class Login extends AppCompatActivity {
                             //Log.i("TEST", "KRZYSZTOF - WSZEDLEM DO LOGOWANIA");
                             Intent new_intent = new Intent (Login.this, MainActivity.class);
                             new_intent.putExtra ("czy_zalogowany",zalogowany);
+                            finish();
                             startActivity (new_intent);
                             Toast.makeText (Login.this, "Zalogowano pomyślnie!", Toast.LENGTH_LONG).show ();
                         }
 
                     });
-
                 }
+
             }
         });
 

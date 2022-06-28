@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     Button choose_floor_button;
     Button qr_scan_button;
     Button door;
-    Boolean czy_zalogowano;
+    Boolean czy_zalogowano = false;
     Boolean czy_klik_door = false;
     String zamek, obecnosc;
     Intent choose_floor_view;
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     Intent register_panel;
     Intent add_new_value, refresh;
     Intent kontakt_intent;
+    Intent kontakt_intent_menu;
     FirebaseAuth mAuth;
     FirebaseDatabase db;
     DatabaseReference pomieszczeniedBref;
@@ -222,11 +223,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.PanelLogowania:
                     login_panel = new Intent (MainActivity.this, Login.class);
                     startActivity (login_panel);
+                    finish();
                 return true;
             case R.id.PanelRejestracji:
                 if(czy_zalogowano.booleanValue () == false) {
                     register_panel = new Intent (MainActivity.this, Register.class);
                     startActivity (register_panel);
+                    finish();
                 }
                 return true;
             case R.id.DodajRekord:
@@ -237,6 +240,12 @@ public class MainActivity extends AppCompatActivity {
                 mAuth.signOut ();
                 refresh = new Intent (MainActivity.this, MainActivity.class);
                 startActivity (refresh);
+                finish();
+                return true;
+            case R.id.Kontakt_menu:
+                kontakt_intent_menu = new Intent (MainActivity.this, Kontakt.class);
+                startActivity (kontakt_intent_menu);
+                return true;
             default:
                 return super.onOptionsItemSelected (item);
         }
@@ -248,10 +257,11 @@ public class MainActivity extends AppCompatActivity {
         mLogin = menu.findItem (R.id.PanelLogowania);
         mSign = menu.findItem (R.id.PanelRejestracji);
         mLogout = menu.findItem (R.id.Wyloguj);
-        if(czy_zalogowano = true)
+        if(czy_zalogowano == true)
         {
-            mLogin.setVisible (true);
-            mSign.setVisible (true);
+            mLogin.setVisible (false);
+            mSign.setVisible (false);
+            mLogout.setVisible(true);
         }
         return true;
     }
