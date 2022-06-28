@@ -1,9 +1,12 @@
 package com.kp.wirtualnapolanka;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.BoringLayout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,28 +18,34 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity {
 
     Toolbar toolbar;
     Button register_button;
     Button login_button;
+    Button doorButton;
     EditText mEmailLogin;
     EditText mPassLogin;
     Boolean czy_logowac = false;
     FirebaseAuth mAuth;
     Boolean zalogowany = false;
+    FirebaseDatabase db;
+    DatabaseReference pomieszczeniedBref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.login_view);
-
         toolbar = findViewById (R.id.toolbar);
         setSupportActionBar (toolbar);
         register_button = findViewById (R.id.go_to_register);
         login_button = findViewById (R.id.login_button);
         mEmailLogin = findViewById (R.id.login_mail);
         mPassLogin = findViewById (R.id.login_password);
+        doorButton = findViewById (R.id.door_button);
+
         mAuth = FirebaseAuth.getInstance ();
         register_button.setOnClickListener (new View.OnClickListener () {
             @Override
@@ -58,25 +67,21 @@ public class Login extends AppCompatActivity {
                 {
                     mEmailLogin.setError ("Brak adresu e-mail");
                     mEmailLogin.requestFocus();
-                    czy_logowac = false;
-                    Log.i("TEST", "KRZYSZTOF - ADRESU");
+                    czy_logowac = false;;
                 }
                 else
                 {
                     czy_logowac = true;
-                    Log.i("TEST", "KRZYSZTOF - ADRESU ELSE");
                 }
                 if(login_pass.isEmpty ())
                 {
                     mPassLogin.setError ("Brak hasła użytkownika");
                     mPassLogin.requestFocus();
                     czy_logowac = false;
-                    Log.i("TEST", "KRZYSZTOF - BRAK HASLA");
                 }
                 else
                 {
                     czy_logowac= true;
-                    Log.i("TEST", "KRZYSZTOF - HASLA ELSE");
                 }
 
                 if(czy_logowac)
@@ -86,17 +91,23 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             zalogowany = true;
-                            Log.i("TEST", "KRZYSZTOF - WSZEDLEM DO LOGOWANIA");
+                            db = FirebaseDatabase.getInstance ();
+                            pomieszczeniedBref = db.getReference ("Pomieszczenie");
+                            //Log.i("TEST", "KRZYSZTOF - WSZEDLEM DO LOGOWANIA");
                             Intent new_intent = new Intent (Login.this, MainActivity.class);
                             new_intent.putExtra ("czy_zalogowany",zalogowany);
                             startActivity (new_intent);
                             Toast.makeText (Login.this, "Zalogowano pomyślnie!", Toast.LENGTH_LONG).show ();
                         }
+
                     });
+
                 }
             }
         });
 
     }
+
+
 
 }

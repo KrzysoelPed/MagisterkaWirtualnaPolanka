@@ -62,7 +62,9 @@
             android:textColor="@color/black"
             android:textColorLink="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold"></EditText>
+            android:textStyle="bold"/>
+
+
         <EditText
             android:id="@+id/register_surname"
             android:layout_centerHorizontal="true"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9FA66F">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="inż. Marcin Siuda"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:typeface="normal"></TextView>
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        android:text="marcin.siuda@student.put.poznan.pl"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:typeface="normal"></TextView>
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:text="inż. Krzysztof Peda"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:typeface="normal"></TextView>
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:text="krzysztof.j.peda@student.put.poznan.pl"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:typeface="normal"></TextView>
+</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

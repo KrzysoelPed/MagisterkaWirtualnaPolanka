@@ -97,8 +97,23 @@
             android:textColor="@color/white"
             android:background="@drawable/button_view" />
 
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/door_button"
+            android:layout_width="550dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/kontakt"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_view_1"
+            android:text="OTWÓRZ"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:visibility="invisible"
+            android:textStyle="bold" />
     </RelativeLayout>
+
+
 
 
 

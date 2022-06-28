@@ -11,6 +11,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -26,6 +27,11 @@ import android.widget.Toast;
 //import com.kontakt.sdk.android.common.KontaktSDK;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -38,40 +44,124 @@ import com.kontakt.sdk.android.common.KontaktSDK;
 import com.kontakt.sdk.android.common.profile.IBeaconDevice;
 import com.kontakt.sdk.android.common.profile.IBeaconRegion;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private ProximityManager proximityManager;
     Toolbar toolbar;
+    Button kontakt, webpage;
     Button choose_floor_button;
     Button qr_scan_button;
+    Button door;
     Boolean czy_zalogowano;
+    Boolean czy_klik_door = false;
+    String zamek, obecnosc;
     Intent choose_floor_view;
     Intent login_panel;
     Intent register_panel;
     Intent add_new_value;
-    BluetoothAdapter bluetoothAdapter;
-    public ArrayList<BluetoothDevice> BTDevices = new ArrayList<> ();
-    public DeviceListAdapter mDevicesListAdapter;
-    ListView DevicesList;
+    Intent kontakt_intent;
+    FirebaseDatabase db;
+    DatabaseReference pomieszczeniedBref;
+    MenuItem mLogout, mLogin, mSign;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
         toolbar = findViewById (R.id.toolbar);
         setSupportActionBar(toolbar);
+
         KontaktSDK.initialize("XHXFxewaYczrqlXxCqIgOFFZiMUUUetY");
+        db = FirebaseDatabase.getInstance ();
+        pomieszczeniedBref = db.getReference ("Pomieszczenie");
         Intent get_login_value = getIntent ();
         czy_zalogowano = get_login_value.getBooleanExtra ("czy_zalogowany", false);
-
+        door = findViewById (R.id.door_button);
         if(czy_zalogowano.booleanValue () == true)
         {
             Toast.makeText (this, "ZALOGOWANO USERA", Toast.LENGTH_LONG).show ();
-        }
+            door.setVisibility (View.VISIBLE);
 
+            pomieszczeniedBref.addValueEventListener (new ValueEventListener () {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                   zamek = (String) snapshot.child("205").child("zamek").getValue();
+                   obecnosc = (String) snapshot.child("205").child("obecnosc").getValue();
+                   if(zamek.equals ("ZAMKNIETE"))
+                   {
+                       door.setText ("OTWÓRZ");
+                   }
+                   else if (zamek.equals ("OTWARTE"))
+                   {
+                       door.setText ("ZAMKNIJ");
+                   }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
+        kontakt = findViewById (R.id.kontakt);
+        webpage = findViewById (R.id.strona_wydzialowa);
+        webpage.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                Uri uri;
+
+                    uri = Uri.parse("http://cat.put.poznan.pl");
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(browserIntent);
+
+        }
+        });
+        kontakt.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                kontakt_intent = new Intent (MainActivity.this, Kontakt.class);
+                startActivity (kontakt_intent);
+            }
+        });
         choose_floor_button = findViewById (R.id.wybor_pietra);
+
+        door.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                if(zamek.equals ("ZAMKNIETE") && obecnosc.equals ("OBECNY") )
+                {
+                    czy_klik_door = true;
+                    HashMap hashMap = new HashMap ();
+                    hashMap.put ("zamek", "OTWARTE");
+                    pomieszczeniedBref.child ("205").updateChildren (hashMap);
+                    door.setText ("ZAMKNIJ");
+                }
+                else if(obecnosc.equals ("NIEOBECNY") && zamek.equals ("ZAMKNIETE"))
+                {
+                    Toast.makeText(MainActivity.this, "JESTES ZA DALEKO OD DRZWI", Toast.LENGTH_LONG).show ();
+
+                }
+
+                if(zamek.equals ("OTWARTE"))
+                {
+                    Log.i("WARTOSC ZAMKA W IF", zamek);
+                    czy_klik_door = true;
+                    HashMap hashMap = new HashMap ();
+                    hashMap.put ("zamek", "ZAMKNIETE");
+                    pomieszczeniedBref.child ("205").updateChildren (hashMap);
+                    door.setText("OTWORZ");
+                }
+            }
+        });
+
 
 
 
@@ -80,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 choose_floor_view = new Intent (MainActivity.this, Choose_Floor.class );
                 startActivity (choose_floor_view);
+
             }
         });
 
@@ -119,62 +210,14 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Oj, coś poszło nie tak", Toast.LENGTH_LONG).show();
         }
 
-        //proximityManager = ProximityManagerFactory.create(this);
-        //proximityManager.setIBeaconListener(createIBeaconListener());
 
     }
-/*
-    private BroadcastReceiver BroadcastReceiver3 = new BroadcastReceiver () {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction ();
-
-            if(action.equals (BluetoothDevice.ACTION_FOUND))
-            {
-                BluetoothDevice device = intent.getParcelableExtra (BluetoothDevice.EXTRA_DEVICE);
-                int rssi = intent.getShortExtra (BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
-                BTDevices.add (device);
-                Log.d(TAG, "onReceive: "+device.getName ()+": "+device.getAddress ()+": "+rssi);
-                //mDevicesListAdapter = new DeviceListAdapter (context, R.layout.devices_view_adapter, BTDevices);
-                DevicesList.setAdapter (mDevicesListAdapter);
-            }
-
-        }
-    };
-    @Override
-    protected void onStart() {
-        super.onStart();
-        startScanning();
-
-    }
-
-    @Override
-    protected void onStop() {
-        proximityManager.stopScanning();
-        super.onStop();
-    }
-
-    private void startScanning() {
-        proximityManager.connect(new OnServiceReadyListener () {
-            @Override
-            public void onServiceReady() {
-                proximityManager.startScanning();
-            }
-        });
-    }
-    private IBeaconListener createIBeaconListener() {
-        return new SimpleIBeaconListener () {
-            @Override
-            public void onIBeaconDiscovered(IBeaconDevice ibeacon, IBeaconRegion region) {
-                Log.i(TAG, "IBeacon discovered: " + ibeacon.toString());
-            }
-        };
-    }
-*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater ();
         inflater.inflate (R.menu.toolbar_menu, menu);
+
+
         return true;
     }
 
@@ -182,14 +225,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId ())
         {
-            case R.id.item1:
-                if(czy_zalogowano.booleanValue () == true) {
-                    item.setVisible (false);
-                }
+            case R.id.PanelLogowania:
                     login_panel = new Intent (MainActivity.this, Login.class);
                     startActivity (login_panel);
                 return true;
-            case R.id.item2:
+            case R.id.PanelRejestracji:
                 if(czy_zalogowano.booleanValue () == false) {
                     register_panel = new Intent (MainActivity.this, Register.class);
                     startActivity (register_panel);
@@ -204,5 +244,18 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected (item);
         }
 
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        mLogin = menu.findItem (R.id.PanelLogowania);
+        mSign = menu.findItem (R.id.PanelRejestracji);
+        mLogout = menu.findItem (R.id.Wyloguj);
+        if(czy_zalogowano = true)
+        {
+            mLogin.setVisible (true);
+            mSign.setVisible (true);
+        }
+        return true;
     }
 }

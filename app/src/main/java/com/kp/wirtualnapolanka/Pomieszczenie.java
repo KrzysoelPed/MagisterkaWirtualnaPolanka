@@ -12,9 +12,10 @@ public class Pomieszczenie {
     String obecnosc;
     String user;
     String kontakt;
+    String zamek;
 
 
-    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ,String opiekun, String konsultacje, String obecnosc, String user, String kontakt) {
+    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ,String opiekun, String konsultacje, String obecnosc, String user, String kontakt, String zamek) {
         this.pomieszczenie = pomieszczenie;
         this.poziom = poziom;
         this.pomieszczenie_typ = pomieszczenie_typ;
@@ -23,10 +24,19 @@ public class Pomieszczenie {
         this.obecnosc = obecnosc;
         this.user = user;
         this.kontakt = kontakt;
+        this.zamek = zamek;
     }
 
     public String getUser() {
         return user;
+    }
+
+    public String getZamek() {
+        return zamek;
+    }
+
+    public void setZamek(String zamek) {
+        this.zamek = zamek;
     }
 
     public void setUser(String user) {

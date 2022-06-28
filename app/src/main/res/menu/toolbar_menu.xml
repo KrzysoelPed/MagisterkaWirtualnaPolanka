@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/item1"
+
+<item android:id="@+id/PanelLogowania"
     android:visible="true"
     android:title="Panel logowania"/>
 
-    <item android:id="@+id/item2"
+    <item android:id="@+id/PanelRejestracji"
         android:visible="true"
         android:title="Panel rejestracji"
         />
@@ -12,8 +13,9 @@
         android:visible="true"
         android:title="Dodaj pomieszczenie"
         />
-    <item android:id="@+id/item3"
-        android:title="Kontakt"/>
+    <item android:id="@+id/Kontakt_menu"
+        android:title="Kontakt"
+        android:visible="true"/>
     <item android:id="@+id/Wyloguj"
         android:visible="true"
         android:title="Wyloguj"/>

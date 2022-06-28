@@ -33,6 +33,7 @@
         </activity>
 
         <service android:name="com.kontakt.sdk.android.ble.service.ProximityService" android:exported="false"/>
+
         <activity android:name=".Choose_Floor" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
@@ -42,6 +43,7 @@
         <activity android:name=".First_floor" />
         <activity android:name=".Second_floor"/>
         <activity android:name=".Room_detail"/>
+        <activity android:name=".Kontakt"/>
         <activity android:name=".Qr_code_generator"/>
         <activity android:name=".Capture"
             android:screenOrientation="portrait"
