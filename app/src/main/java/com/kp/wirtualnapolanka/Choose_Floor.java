@@ -124,7 +124,6 @@ public class Choose_Floor extends AppCompatActivity {
                                             break;
                                         }
                                     }
-
                                 }
                             }
 
@@ -161,7 +160,6 @@ public class Choose_Floor extends AppCompatActivity {
                                                 }
                                             }
                                         }
-
                                     }
 
                                     @Override
@@ -175,7 +173,6 @@ public class Choose_Floor extends AppCompatActivity {
                 }else {
                     Log.d("tag", "Nie znaleziono danych");
                 }
-
             }
 
             @Override
@@ -195,7 +192,6 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_ground_intent = new Intent(Choose_Floor.this, Ground_floor.class);
-                dataFromDb.clear();
                 startActivity(button_ground_intent);
             }
         });
@@ -204,7 +200,6 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_first_floor_intent = new Intent(Choose_Floor.this, First_floor.class);
-                dataFromDb.clear();
                 startActivity(button_first_floor_intent);
             }
         });
@@ -213,7 +208,6 @@ public class Choose_Floor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_second_floor_intent = new Intent(Choose_Floor.this, Second_floor.class);
-                dataFromDb.clear();
                 startActivity(button_second_floor_intent);
             }
         });

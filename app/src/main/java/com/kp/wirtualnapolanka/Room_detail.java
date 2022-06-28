@@ -132,8 +132,6 @@ public class Room_detail extends AppCompatActivity {
                     rTimeInfo = (String) snapshot.child(idBase).child("konsultacje").getValue();
                     rPresenceInfo = (String) snapshot.child(idBase).child("obecnosc").getValue();
 
-
-
                     if(rDetailName.equals("Pokój prywatny")){
                         roomDetailName.setText("PROWADZĄCY");
                         roomDetailImage.setBackgroundResource(R.drawable.osoba);

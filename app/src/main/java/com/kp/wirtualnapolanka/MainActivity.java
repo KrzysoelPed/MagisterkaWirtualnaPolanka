@@ -91,18 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
 
                 intentIntegrator.setPrompt("W celu użycia lampki, użyj przycisku głośności w górę");
-
                 intentIntegrator.setBeepEnabled(true);
-
                 intentIntegrator.setOrientationLocked(true);
-
                 intentIntegrator.setCaptureActivity(Capture.class);
-
                 intentIntegrator.initiateScan();
             }
         });
-
-
     }
 
     @Override
@@ -118,10 +112,6 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(), "Oj, coś poszło nie tak", Toast.LENGTH_LONG).show();
         }
-
-        //proximityManager = ProximityManagerFactory.create(this);
-        //proximityManager.setIBeaconListener(createIBeaconListener());
-
     }
 /*
     private BroadcastReceiver BroadcastReceiver3 = new BroadcastReceiver () {
@@ -203,6 +193,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected (item);
         }
-
     }
 }

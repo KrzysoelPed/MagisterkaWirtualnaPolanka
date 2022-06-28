@@ -8,23 +8,27 @@ public class Pomieszczenie {
     String poziom;
     String pomieszczenie_typ;
     String opiekun;
+    String osoba;
     String konsultacje;
     String obecnosc;
     String user;
     String kontakt;
+    String zamek;
 
 
-    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ,String opiekun, String konsultacje, String obecnosc, String user, String kontakt) {
+    public Pomieszczenie(String pomieszczenie, String poziom, String pomieszczenie_typ,String opiekun, String konsultacje, String user, String kontakt) {
         this.pomieszczenie = pomieszczenie;
         this.poziom = poziom;
         this.pomieszczenie_typ = pomieszczenie_typ;
         this.opiekun = opiekun;
+        this.osoba = opiekun;
         this.konsultacje = konsultacje;
-        this.obecnosc = obecnosc;
+        this.obecnosc = "NIEOBECNY";
         this.user = user;
         this.kontakt = kontakt;
+        this.zamek = "ZAMKNIETE";
     }
-
+/*
     public String getUser() {
         return user;
     }
@@ -32,7 +36,7 @@ public class Pomieszczenie {
     public void setUser(String user) {
         this.user = user;
     }
-
+*/
     public String getKontakt() {
         return kontakt;
     }
@@ -87,5 +91,21 @@ public class Pomieszczenie {
 
     public String getOpiekun() {
         return opiekun;
+    }
+
+    public void setZamek(String zamek) {
+        this.zamek = zamek;
+    }
+
+    public String getZamek() {
+        return zamek;
+    }
+
+    public String getOsoba() {
+        return osoba;
+    }
+
+    public void setOsoba(String osoba) {
+        this.osoba = opiekun;
     }
 }
