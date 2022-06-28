@@ -76,12 +76,12 @@ public void CheckBeacon()
                                 if (rssi > -60) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "OBECNY");
-                                    pomieszczeniedBref.child ("220").updateChildren (hashMap);
+                                    pomieszczeniedBref.child ("205").updateChildren (hashMap);
                                     bluetoothAdapter.cancelDiscovery ();
                                 } else if (rssi <= -60) {
                                     HashMap hashMap = new HashMap ();
                                     hashMap.put ("obecnosc", "NIEOBECNY");
-                                    pomieszczeniedBref.child ("220").updateChildren (hashMap);
+                                    pomieszczeniedBref.child ("205").updateChildren (hashMap);
                                     bluetoothAdapter.cancelDiscovery ();
                                 }
                             }
