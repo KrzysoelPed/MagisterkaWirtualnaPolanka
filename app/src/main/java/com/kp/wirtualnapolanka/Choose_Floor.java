@@ -59,17 +59,12 @@ public class Choose_Floor extends AppCompatActivity {
         ValueEventListener event = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //ArrayList<String> dataFromDb = new ArrayList<>();
                 if(snapshot.exists()){
-                    //String dataString2 = (String) snapshot.child("osoba").getValue();
-
                     for(DataSnapshot ds:snapshot.getChildren()){
-
                         if(ds.child("osoba").getValue() != null){
                             String dataString = (String) ds.child("osoba").getValue();
                             dataFromDb.add(dataString);
                         }
-
                     }
 
                     mDataRef2.addValueEventListener(new ValueEventListener() {
@@ -77,7 +72,6 @@ public class Choose_Floor extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
-
                                     if (ds.child("pomieszczenie").getValue() != null) {
                                         String dataString = ds.child("pomieszczenie").getValue().toString();
                                         dataFromDb.add(dataString);
@@ -88,7 +82,6 @@ public class Choose_Floor extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                         });
 
